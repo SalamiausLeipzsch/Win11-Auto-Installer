@@ -1,4 +1,4 @@
-﻿# bilder-erstellen.ps1 - Bildschirmfotos fuer das README erzeugen.
+# bilder-erstellen.ps1 - Bildschirmfotos fuer das README erzeugen.
 # Laedt den aktuellen Stand von GitHub und startet die Vorschau (keine Adminrechte, aendert NICHTS am System).
 # Aufruf (Windows + R):  powershell -ep bypass -c "irm https://raw.githubusercontent.com/SalamiausLeipzsch/Win11-Auto-Installer/main/werkzeuge/bilder-erstellen.ps1 | iex"
 $ErrorActionPreference = 'Stop'
