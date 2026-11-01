@@ -13,17 +13,6 @@ Geschrieben für Office-Laptops und Gaming-PCs mit **Windows 11 Pro/Home 24H2 bi
 ## Bilder
 
 Bildschirmfotos der Oberfläche folgen in Kürze.
-
----|---|
-| ![Konten](bilder/10-oberflaeche-konten.png) | ![Cybersicherheit](bilder/13-oberflaeche-cybersicherheit.png) |
-| **Konten:** Alltagskonto ohne Adminrechte, Verwaltungskonto, weitere Konten; alle Passwörter vergibst du selbst | **Cybersicherheit:** Defender-ASR, Kernisolierung, Anmeldeschutz, SMB-Signierung … |
-| ![Programme](bilder/17-oberflaeche-programme.png) | ![Standard-Apps](bilder/18-oberflaeche-standard-apps.png) |
-| **Programme:** rund 250 Programme in Kategorien, Installation über winget | **Standard-Apps:** das gewählte Ersatzprogramm öffnet PDF, Videos, Archive … |
-| ![Fortschritt](bilder/40-fortschritt.png) | ![Zentrale](bilder/30-zentrale.png) |
-| **Fortschrittsfenster:** Gesamt- und Schrittbalken, jede Zeile mit OK oder !! | **Windows-Zentrale:** Prüfen, Reparieren, Updates, Treiber, Programme, Pflege |
-
-Alle Bilder liegen im Ordner [`bilder/`](bilder/).
-
 ---
 
 ## Was es macht
@@ -132,7 +121,7 @@ Ventoy-Version/
   ventoy/ventoy.json, ventoy/script/office.xml, office-pro.xml
   ANLEITUNG-Ventoy.txt
   Windows-Einrichtung/
-bilder/                       Bildschirmfotos
+bilder/                       Bildschirmfotos (folgen)
 ```
 
 ## Lizenz
