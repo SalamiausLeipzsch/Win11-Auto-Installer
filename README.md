@@ -12,7 +12,12 @@ Geschrieben für Office-Laptops und Gaming-PCs mit **Windows 11 Pro/Home 24H2 bi
 
 ## Bilder
 
-Bildschirmfotos der Oberfläche folgen in Kürze.
+Fotos vom echten Testlauf auf einem HP-Laptop (Office-Profil):
+
+| Fortschrittsfenster am Ende | Prüfung eines Kontos |
+|---|---|
+| ![Einrichtung abgeschlossen](bilder/fortschritt-fertig.jpg) | ![Kontoprüfung](bilder/pruefung-konto.jpg) |
+| „Einrichtung abgeschlossen“: 198 OK, 0 Abweichungen, danach die Autostart-Frage (nur Virenschutz und Treiber bleiben) | Alle Konto-Einstellungen und Standard-Apps geprüft: 70 OK, 0 Abweichungen |
 
 ---
 
@@ -122,7 +127,7 @@ Ventoy-Version/
   ventoy/ventoy.json, ventoy/script/office.xml, office-pro.xml
   ANLEITUNG-Ventoy.txt
   Windows-Einrichtung/
-bilder/                       Bildschirmfotos (folgen)
+bilder/                       Fotos vom Testlauf
 ```
 
 ## Lizenz
@@ -141,7 +146,7 @@ Built for office laptops and gaming PCs running **Windows 11 Pro/Home 24H2 to 26
 
 ### Screenshots
 
-Screenshots of the user interface will be added shortly.
+Photos from a real test run on an HP laptop are shown at the top: the progress window at the end ("Einrichtung abgeschlossen" = setup finished, 198 OK, 0 deviations, followed by the autostart review) and the check of one account (70 OK, 0 deviations).
 
 ### What it does
 
