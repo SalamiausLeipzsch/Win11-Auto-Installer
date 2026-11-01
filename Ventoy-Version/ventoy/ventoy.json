@@ -1,0 +1,13 @@
+{
+  "auto_install": [
+    {
+      "parent": "/ISO/Windows11-Office",
+      "template": [
+        "/ventoy/script/office.xml",
+        "/ventoy/script/office-pro.xml"
+      ],
+      "autosel": 1,
+      "timeout": 15
+    }
+  ]
+}

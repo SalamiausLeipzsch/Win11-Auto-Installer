@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  autounattend.xml - Windows 11 (de-DE) ohne Ersteinrichtung, mit lokalem Admin-Konto
+  Diese Datei gehoert ins HAUPTVERZEICHNIS des Installations-Sticks (neben "setup.exe"),
+  der Ordner "Windows-Einrichtung" ebenfalls ins Hauptverzeichnis.
+
+  Was passiert:
+   - Installation: Sprache Deutsch, Lizenzbedingungen akzeptiert. Edition/Schluessel und
+     die Zielfestplatte waehlst du weiterhin selbst (es wird nichts automatisch geloescht).
+   - Danach wird die komplette Ersteinrichtung uebersprungen (kein Netzwerk, kein Microsoft-Konto,
+     alle Datenschutzfragen auf "aus").
+   - Das Admin-Konto "Verwaltung" wird mit einem VORLAEUFIGEN Passwort angelegt und einmal
+     automatisch angemeldet. Danach startet die Auswahloberflaeche von selbst. Dort setzt du
+     dein eigenes Passwort - das vorlaeufige ist anschliessend ungueltig, die automatische
+     Anmeldung und diese Datei werden von der Festplatte entfernt.
+
+  Anderen Namen fuer das Admin-Konto: "Verwaltung" an den DREI markierten Stellen ersetzen
+  (1x bei AutoLogon, 2x bei LocalAccount). Keine Leer- oder Sonderzeichen.
+-->
+<unattend xmlns="urn:schemas-microsoft-com:unattend" xmlns:wcm="http://schemas.microsoft.com/WMIConfig/2002/State">
+
+  <settings pass="windowsPE">
+    <component name="Microsoft-Windows-International-Core-WinPE" processorArchitecture="amd64" publicKeyToken="31bf3856ad364e35" language="neutral" versionScope="nonSxS">
+      <SetupUILanguage>
+        <UILanguage>de-DE</UILanguage>
+      </SetupUILanguage>
+      <InputLocale>0407:00000407</InputLocale>
+      <SystemLocale>de-DE</SystemLocale>
+      <UILanguage>de-DE</UILanguage>
+      <UserLocale>de-DE</UserLocale>
+    </component>
+    <component name="Microsoft-Windows-Setup" processorArchitecture="amd64" publicKeyToken="31bf3856ad364e35" language="neutral" versionScope="nonSxS">
+      <UserData>
+        <AcceptEula>true</AcceptEula>
+      </UserData>
+      <!-- Erlaubt die Installation auch auf aelteren Geraeten ohne TPM 2.0/Secure Boot; auf passender Hardware wirkungslos -->
+      <RunSynchronous>
+        <RunSynchronousCommand wcm:action="add">
+          <Order>1</Order>
+          <Path>reg.exe add "HKLM\SYSTEM\Setup\LabConfig" /v BypassTPMCheck /t REG_DWORD /d 1 /f</Path>
+        </RunSynchronousCommand>
+        <RunSynchronousCommand wcm:action="add">
+          <Order>2</Order>
+          <Path>reg.exe add "HKLM\SYSTEM\Setup\LabConfig" /v BypassSecureBootCheck /t REG_DWORD /d 1 /f</Path>
+        </RunSynchronousCommand>
+        <RunSynchronousCommand wcm:action="add">
+          <Order>3</Order>
+          <Path>reg.exe add "HKLM\SYSTEM\Setup\LabConfig" /v BypassRAMCheck /t REG_DWORD /d 1 /f</Path>
+        </RunSynchronousCommand>
+      </RunSynchronous>
+    </component>
+  </settings>
+
+  <settings pass="specialize">
+    <component name="Microsoft-Windows-Deployment" processorArchitecture="amd64" publicKeyToken="31bf3856ad364e35" language="neutral" versionScope="nonSxS">
+      <RunSynchronous>
+        <RunSynchronousCommand wcm:action="add">
+          <Order>1</Order>
+          <Description>Kein Netzwerkzwang in der Ersteinrichtung</Description>
+          <Path>reg.exe add "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\OOBE" /v BypassNRO /t REG_DWORD /d 1 /f</Path>
+        </RunSynchronousCommand>
+        <RunSynchronousCommand wcm:action="add">
+          <Order>2</Order>
+          <Description>Netzwerk bis zur Programminstallation trennen (setup.ps1 gibt es wieder frei)</Description>
+          <Path>powershell.exe -NoProfile -Command "Get-NetAdapter -Physical | Where-Object Status -ne 'Disabled' | ForEach-Object { reg.exe add HKLM\SOFTWARE\Einrichtung\NetzGetrennt /v $_.Name /f; Disable-NetAdapter -Name $_.Name -Confirm:0 }"</Path>
+        </RunSynchronousCommand>
+      </RunSynchronous>
+    </component>
+  </settings>
+
+  <settings pass="oobeSystem">
+    <component name="Microsoft-Windows-International-Core" processorArchitecture="amd64" publicKeyToken="31bf3856ad364e35" language="neutral" versionScope="nonSxS">
+      <InputLocale>0407:00000407</InputLocale>
+      <SystemLocale>de-DE</SystemLocale>
+      <UILanguage>de-DE</UILanguage>
+      <UserLocale>de-DE</UserLocale>
+    </component>
+    <component name="Microsoft-Windows-Shell-Setup" processorArchitecture="amd64" publicKeyToken="31bf3856ad364e35" language="neutral" versionScope="nonSxS">
+      <AutoLogon>
+        <Enabled>true</Enabled>
+        <!-- Stelle 1: Kontoname -->
+        <Username>Verwaltung</Username>
+        <Password>
+          <Value>Einrichtung-2026</Value>
+          <PlainText>true</PlainText>
+        </Password>
+        <LogonCount>1</LogonCount>
+      </AutoLogon>
+      <FirstLogonCommands>
+        <SynchronousCommand wcm:action="add">
+          <Order>1</Order>
+          <Description>Auswahloberflaeche vom Stick starten</Description>
+          <CommandLine>cmd.exe /c for %d in (D E F G H I J K L M N O P Q R S T U V W Y Z) do @if exist "%d:\Windows-Einrichtung\Start.cmd" (start "" "%d:\Windows-Einrichtung\Start.cmd" -Erststart &amp; exit)</CommandLine>
+        </SynchronousCommand>
+      </FirstLogonCommands>
+      <OOBE>
+        <HideEULAPage>true</HideEULAPage>
+        <HideOEMRegistrationScreen>true</HideOEMRegistrationScreen>
+        <HideOnlineAccountScreens>true</HideOnlineAccountScreens>
+        <HideWirelessSetupInOOBE>true</HideWirelessSetupInOOBE>
+        <HideLocalAccountScreen>true</HideLocalAccountScreen>
+        <ProtectYourPC>3</ProtectYourPC>
+      </OOBE>
+      <TimeZone>W. Europe Standard Time</TimeZone>
+      <UserAccounts>
+        <LocalAccounts>
+          <LocalAccount wcm:action="add">
+            <!-- Stelle 2 und 3: Kontoname -->
+            <Name>Verwaltung</Name>
+            <DisplayName>Verwaltung</DisplayName>
+            <Group>Administrators</Group>
+            <Password>
+              <Value>Einrichtung-2026</Value>
+              <PlainText>true</PlainText>
+            </Password>
+          </LocalAccount>
+        </LocalAccounts>
+      </UserAccounts>
+    </component>
+  </settings>
+</unattend>

@@ -1,0 +1,822 @@
+﻿=====================================================================
+ WINDOWS 11 NEU AUFSETZEN - SCHRITT FÜR SCHRITT  (RUFUS-VERSION)
+ (Laptop als Office-Gerät, alles automatisch mit autounattend.xml)
+ Du hast einen Ventoy-Stick? Dann die Ventoy-Version nehmen.
+=====================================================================
+
+Dauer: ca. 1 bis 1,5 Stunden, davon die meiste Zeit Warten.
+Tipp: Diese Anleitung am Handy offen haben - der Laptop ist während
+der Installation nicht benutzbar.
+
+
+---------------------------------------------------------------------
+ TEIL 0 - VORHER KLÄREN (am Laptop, solange das alte Windows läuft)
+---------------------------------------------------------------------
+
+[ ] 0.1  Daten sichern
+         Die Installation löscht die komplette Festplatte. Alles, was du
+         behalten willst (Dokumente, Bilder, Browser-Lesezeichen,
+         Passwörter), vorher auf einen anderen Stick oder PC kopieren.
+
+[ ] 0.2  Welche Windows-Edition hat der Laptop?
+         Windows + I -> links "System" -> rechts "Aktivierung".
+         Dort steht "Windows 11 Home" oder "Windows 11 Pro".
+         - Steht dort Home und du hast keinen eigenen Pro-Schlüssel:
+           Home installieren. Das Skript passt sich an.
+         - Willst du Pro mit eigenem Schlüssel: Schritt 1.9 machen.
+
+[ ] 0.3  Laptop-Modell notieren
+         Steht auf dem Aufkleber unten am Gerät (z. B. "HP 250 G9").
+         Brauchst du später für die Treiber.
+
+[ ] 0.4  (Empfohlen) WLAN-Treiber vorsorglich holen
+         Windows bringt für die meisten Laptops den WLAN-Treiber mit.
+         Falls nicht, hast du nach der Installation kein Internet.
+         Vorsorglich: support.hp.com/de-de/drivers -> Modell eingeben
+         -> Betriebssystem Windows 11 -> Bereich "Netzwerk" -> WLAN-
+         Treiber herunterladen und später mit auf den Stick legen.
+
+
+---------------------------------------------------------------------
+ TEIL 1 - INSTALLATIONS-STICK ERSTELLEN (am Gaming-PC)
+---------------------------------------------------------------------
+
+Du brauchst: einen USB-Stick mit mindestens 16 GB. Er wird komplett
+gelöscht.
+
+[ ] 1.1  Windows-11-ISO herunterladen
+         Browser -> microsoft.com/de-de/software-download/windows11
+         -> Abschnitt "Windows 11-Datenträgerimage (ISO) für x64-Geräte
+            herunterladen"
+         -> Auswahlfeld: "Windows 11 (multi-edition ISO for x64 devices)"
+            -> Herunterladen bestätigen
+         -> Sprache: "Deutsch" -> Bestätigen
+         -> "64-bit Download". Die Datei ist ca. 6-7 GB groß.
+
+[ ] 1.2  Rufus herunterladen und starten
+         rufus.ie -> Abschnitt Download -> die normale "rufus-x.x.exe"
+         -> doppelklicken. Adminabfrage bestätigen.
+
+[ ] 1.3  In Rufus einstellen
+         - "Laufwerk": deinen USB-Stick auswählen (genau hinschauen!)
+         - "Startart": "Laufwerk oder ISO-Image" -> rechts daneben
+           "AUSWAHL" -> die heruntergeladene ISO wählen
+         - "Partitionsschema": GPT
+         - "Zielsystem": UEFI (ohne CSM)
+         - Rest so lassen -> unten "START"
+
+[ ] 1.4  WICHTIG: Fenster "Windows-Benutzererfahrung anpassen"
+         Hier ALLE Haken ENTFERNEN (auch "lokales Konto erstellen",
+         "Datenerfassung deaktivieren" usw.) -> OK.
+         Grund: Sonst schreibt Rufus seine eigene Antwortdatei und
+         unsere autounattend.xml wirkt nicht.
+
+[ ] 1.5  Warnung "Alle Daten werden gelöscht" -> OK.
+         Warten, bis unten "BEREIT" grün steht (5-15 Minuten).
+         Rufus schließen.
+
+[ ] 1.6  ZIP entpacken
+         Rechtsklick auf "Windows-Einrichtung.zip" -> "Alle extrahieren"
+         -> "Extrahieren". Im entpackten Ordner liegen:
+            autounattend.xml
+            ANLEITUNG-Schritt-fuer-Schritt.txt (diese Datei)
+            Windows-Einrichtung  (Ordner)
+
+[ ] 1.7  Auf den Stick kopieren
+         Explorer (Windows + E) -> links "Dieser PC" -> den Stick
+         öffnen. Du siehst dort u. a. "boot", "efi", "sources" und
+         "setup.exe". Das ist das HAUPTVERZEICHNIS.
+         Hierhin kopieren:
+            autounattend.xml
+            den ganzen Ordner Windows-Einrichtung
+         NICHT in einen Unterordner legen - sonst findet Windows die
+         Datei nicht.
+
+[ ] 1.8  (Optional) WLAN-Treiber aus Schritt 0.4 ebenfalls auf den
+         Stick kopieren, z. B. in einen Ordner "WLAN-Treiber".
+
+[ ] 1.9  (Nur für Pro auf einem Laptop mit Home-Schlüssel)
+         Auf dem Stick den Ordner "sources" öffnen -> Rechtsklick in
+         einen freien Bereich -> Neu -> Textdokument -> Name: ei.cfg
+         (die Endung .txt muss weg! Falls Endungen nicht sichtbar:
+         Explorer oben "Anzeigen" -> "Einblenden" -> "Dateinamen-
+         erweiterungen"). Mit dem Editor öffnen, diese 4 Zeilen
+         hineinschreiben, speichern:
+            [EditionID]
+            Professional
+            [Channel]
+            Retail
+
+[ ] 1.10 (Optional) Anderer Name als "Verwaltung" für das Admin-Konto
+         Rechtsklick auf autounattend.xml (auf dem Stick) -> "Öffnen
+         mit" -> Editor. Das Wort Verwaltung an den 3 markierten
+         Stellen (Kommentare "Stelle 1", "Stelle 2 und 3") ersetzen.
+         Keine Leer- und Sonderzeichen. Speichern.
+
+
+---------------------------------------------------------------------
+ TEIL 2 - VOM STICK STARTEN (am Laptop)
+---------------------------------------------------------------------
+
+[ ] 2.1  Laptop ausschalten. Ein Netzwerkkabel DARF stecken bleiben:
+         Das Netz wird gleich nach der Installation automatisch
+         getrennt und erst für die Programme wieder freigegeben.
+         Netzteil anstecken - die Installation nie mit Akku allein.
+[ ] 2.2  Stick einstecken.
+[ ] 2.3  Einschalten und sofort mehrmals F9 antippen (HP: Boot-Menü).
+         Klappt es nicht: beim Einschalten Esc antippen -> im Menü F9.
+[ ] 2.4  Im Boot-Menü den Stick wählen, meist "USB Hard Drive (UEFI)"
+         oder der Name des Sticks -> Enter.
+         Erscheint "Press any key to boot from USB" -> eine Taste
+         drücken.
+
+
+---------------------------------------------------------------------
+ TEIL 3 - WINDOWS-SETUP (hier klickst du noch selbst)
+---------------------------------------------------------------------
+
+Sprache und Tastatur sind durch die autounattend.xml schon auf Deutsch
+gesetzt; erscheinen die Seiten trotzdem, einfach "Weiter".
+
+[ ] 3.1  "Setupoption auswählen": "Windows 11 installieren" wählen und
+         den Haken setzen, dass alles gelöscht werden darf -> Weiter.
+
+[ ] 3.2  "Produktschlüssel":
+         - Erscheint die Seite nicht: Der Schlüssel aus dem BIOS wird
+           genutzt - gut.
+         - Erscheint sie: eigenen Schlüssel eingeben oder unten "Ich
+           habe keinen Product Key".
+
+[ ] 3.3  "Image auswählen" (nur wenn gefragt): "Windows 11 Home" oder
+         "Windows 11 Pro" - passend zu deiner Lizenz (Schritt 0.2).
+
+[ ] 3.4  "Speicherort für Windows 11 auswählen" - JETZT GENAU HINSCHAUEN
+         Die Liste zeigt "Laufwerk 0 Partition 1, 2, 3 ..." - das ist
+         die eingebaute SSD. Der Stick taucht hier nicht oder als
+         eigenes Laufwerk mit anderer Nummer auf - den NICHT anfassen.
+         - Jede Partition von Laufwerk 0 anklicken -> "Partition
+           löschen" -> bestätigen. So lange, bis nur noch "Laufwerk 0
+           Nicht zugewiesener Speicherplatz" übrig ist.
+         - Diesen anklicken -> "Weiter".
+
+[ ] 3.5  "Bereit zur Installation" -> "Installieren".
+         Jetzt 10-30 Minuten warten. Der Laptop startet mehrmals neu.
+         STICK STECKEN LASSEN. Bei "Press any key to boot from USB"
+         diesmal KEINE Taste drücken.
+
+
+---------------------------------------------------------------------
+ TEIL 4 - ERSTEINRICHTUNG (läuft allein)
+---------------------------------------------------------------------
+
+[ ] 4.1  Du siehst "Bitte warten", evtl. einen weiteren Neustart.
+         Fragen nach Region, Netzwerk, Konto oder Datenschutz kommen
+         NICHT - die werden übersprungen.
+
+[ ] 4.2  Windows meldet sich einmal automatisch als "Verwaltung" an.
+         Nach der kurzen Begrüßungsanimation erscheint der Desktop und
+         die Auswahloberfläche "Windows-Einrichtung". Das schwarze
+         Protokollfenster liegt nur minimiert in der Taskleiste - nicht
+         schließen.
+
+[ ] 4.3  Kommt nach 3 Minuten keine Oberfläche:
+         Windows + E -> Stick öffnen -> Ordner Windows-Einrichtung ->
+         Start.cmd doppelklicken -> Adminabfrage mit "Ja".
+
+
+---------------------------------------------------------------------
+ TEIL 5 - AUSWAHLOBERFLÄCHE AUSFÜLLEN
+---------------------------------------------------------------------
+
+Oben im Fenstertitel siehst du Edition, Version und erkannte
+Grafikkarte. Unten links steht das Profil.
+
+[ ] 5.1  Unten "Profil": "Office" wählen.
+         Das setzt alle Haken passend für ein Office-Gerät.
+
+[ ] 5.2  Reiter "Konten" - vier Blöcke, alle Felder ausfüllen:
+         - "Alltagskonto": Name = dein Wunschname für den Alltag
+           (ohne Adminrechte, damit arbeitest du später),
+           Passwort + wiederholen
+         - "Admin-Konto: Verwaltung": Haken "Pflicht: eigenes
+           Passwort ..." ist fest gesetzt -> neues Passwort + wieder-
+           holen (ersetzt das vorläufige "Einrichtung-2026")
+         - "Eingebautes Konto Administrator": Passwort + wiederholen
+           (wird danach abgeschaltet - trotzdem ein eigenes, starkes
+           Passwort)
+         - "Gerät": PC-Name optional, z. B. OFFICE-LAPTOP
+         - "Windows-Lizenz (optional)": Der graue Text sagt dir, ob
+           Windows schon aktiviert ist bzw. ob im BIOS ein Key steckt.
+           Nur wenn nicht und du einen eigenen Key hast: hier eintragen
+           (XXXXX-XXXXX-XXXXX-XXXXX-XXXXX). Er wird nur eingetragen und
+           online aktiviert, nirgends gespeichert oder protokolliert.
+         - "Weitere Konten (optional)": "Konto hinzufügen ..." -> Name,
+           Passwort + wiederholen, Haken "Administrator" nur wenn
+           wirklich nötig -> OK. Beliebig viele (Familie, Gäste). Sie
+           bekommen dieselben Komfort- und Datenschutz-Einstellungen
+           wie das Alltagskonto. "Aus der Liste nehmen" löscht KEIN
+           bestehendes Windows-Konto. Gespeicherte Profile merken sich
+           Namen und Art, nie die Passwörter.
+         Alle Passwörter mindestens 8 Zeichen. AUFSCHREIBEN und sicher
+         aufbewahren - vor allem das von "Verwaltung".
+
+[ ] 5.2b Reiter "Updates & Store" (alles schon angehakt):
+         - Windows-Updates automatisch nach dem Neustart, mit allen
+           nötigen Neustarts
+         - Optionale Updates (Treiber, Vorschau-Updates)
+         - Microsoft-Store-Apps aktualisieren (kostenlos, ohne Konto)
+         - Nur Gaming-Profil vorausgewählt: "Anmeldung bei Microsoft
+           Store / Xbox NUR in den Apps erlauben". Dann kannst du dich
+           später im Store oder in der Xbox-App mit deinem Microsoft-
+           Konto anmelden, OHNE dass dein lokales Windows-Konto zum
+           Microsoft-Konto wird (das wird zusätzlich gesperrt). Dafür im
+           Reiter Microsoft-Apps "Xbox" und "Microsoft Store" NICHT
+           anhaken - sonst meldet die Oberfläche das beim Start.
+
+[ ] 5.3  Reiter "Sicherheit" und "Datenschutz": durchlesen, Haken so
+         lassen. Grau markierte Punkte gibt es in deiner Edition nicht.
+         "Edge deinstallieren" nur anhaken, wenn du im Reiter
+         "Programme" Firefox (oder einen anderen Browser) angehakt hast.
+         BITLOCKER: Beim Office-Profil ist BitLocker AUS - unten in der
+         Leiste steht dann orange "BitLocker wird NICHT eingerichtet".
+         Willst du die Festplatte verschlüsseln (empfohlen, wenn der
+         Laptop mitgenommen wird): Reiter Sicherheit -> "BitLocker für
+         Laufwerk C:" anhaken. Der Wiederherstellungsschlüssel landet
+         dann als Datei auf dem Stick (ausdrucken!). Geht auch später:
+         Zentrale -> Auswahloberfläche -> Reiter Sicherheit.
+
+[ ] 5.3b Reiter "Cybersicherheit": zusätzliche Härtung.
+         - Ohne "[Streng]" = empfohlen, schon angehakt, stört im Alltag
+           nicht: Defender-ASR-Regeln (gegen Makro-, Skript-, USB- und
+           Ransomware-Tricks), Cloud-Schutz hoch, Archive/USB mitscannen,
+           Kernisolierung + Treiber-Sperrliste + LSA-Schutz, Schutz der
+           Anmeldedaten, SMB-Signierung, kein AutoRun, SmartScreen fest,
+           Bildschirmsperre nach 10 Min., Remote-Registrierung aus,
+           Kennwort mind. 8 Zeichen, Sicherheitsprotokoll, Browser mit
+           uBlock Origin + HTTPS-only.
+         - "[Streng]" = noch sicherer, aber mit möglichen Nebenwirkungen
+           (im Text genannt): ASR für unbekannte Programme, Ransomware-
+           Ordnerschutz, Quad9-DNS, USB-Programme verboten, Windows
+           Script Host aus, Freigabe-Dienste aus, Windows-Sandbox.
+         - Knöpfe unten: "Empfohlen", "Maximal (alles an)", "Keine".
+         - Nimmst du später einen Haken hier wieder raus, setzt die
+           nächste Einrichtung diesen Punkt auf Windows-Standard zurück.
+         Sicherheits-PROGRAMME (zweiter Virenscanner, Firewall-Tools,
+         VeraCrypt, Backup ...) stehen im Reiter "Programme" (5.6).
+
+[ ] 5.4  Reiter "Microsoft-Apps": Die oberen Einträge sind angehakt und
+         werden entfernt. Die unteren (Fotos, Kamera, Paint, Rechner,
+         Editor, Store ...) sind bewusst NICHT angehakt - nur anhaken,
+         wenn du im Reiter "Programme" einen Ersatz wählst.
+
+[ ] 5.5  Reiter "Komfort": so lassen. Darin u. a.:
+         - Dunkelmodus, altes Kontextmenü, Task beenden, Animationen aus
+         - Taskleiste links, nur Explorer + Browser angeheftet,
+           Startmenü nur mit deinen Programmen, "Empfohlen" aus
+         - Desktop aufgeräumt, alle Infobereich-Symbole sichtbar
+         - Explorer ohne "Start"/"Katalog", versteckte Dateien sichtbar,
+           voller Pfad; Systemdateien nur im Verwaltungskonto
+         - Energie: Netzteil = Beste Leistung, nie Energiesparmodus,
+           USB volle Leistung; Akku = ausbalanciert/sparsam
+         - Ein/Aus-Taste = Herunterfahren, Zuklappen: Akku = Energie
+           sparen, Netzteil = weiterlaufen; Schnellstart aus
+         - "Ultimative Leistung" auswählbar, aktiv bleibt Ausbalanciert
+         - Startmenü "Alle" als Liste (wird automatisch gesetzt und
+           alle 30 Sekunden nachgezogen, falls Windows es zurückstellt)
+
+[ ] 5.6  Reiter "Programme": rund 250 Programme (eigene Auswahl plus
+         viele bekannte Programme), sortiert in Unter-Reitern:
+         Browser, Office & PDF, Kommunikation, Medien & Grafik,
+         Werkzeuge, Sicherheit & Passwörter, Cloud & Sync, Fernzugriff
+         & VPN, Netzwerk & IT, System & Diagnose, Entwicklung, Gaming,
+         Heimnetz & Medienserver, Microsoft-Werkzeuge.
+         Die Zahl in Klammern am Unter-Reiter = angehakte Programme dort.
+         Für Sicherheit gibt es eigene Unter-Reiter: "Virenschutz &
+         Firewall" (Malwarebytes, AdwCleaner, Emsisoft-Notfallscanner,
+         Bitdefender/ESET als Defender-Ersatz, Portmaster, Windows
+         Firewall Control, Sandboxie ...), "Verschlüsselung &
+         Passwörter" (VeraCrypt, Cryptomator, Gpg4win, KeePassXC,
+         YubiKey ...), "Sicherheits-Analyse" (Sysinternals, System
+         Informer ...) und "Datensicherung" (Veeam Agent, Duplicati,
+         Kopia). Wichtig: nur EIN Virenscanner mit Echtzeitschutz -
+         Bitdefender oder ESET schalten Defender ab; Malwarebytes Free,
+         AdwCleaner und Emsisoft sind reine Zweitscanner und vertragen
+         sich mit Defender.
+         Vorausgewählt (Office): Firefox, LibreOffice, PDF-XChange
+         Editor, VLC, 7-Zip, LocalSend. IrfanView bzw. Notepad++ werden
+         nur angehakt, wenn du im Reiter Microsoft-Apps "Fotos" bzw.
+         "Editor/Notepad" entfernst (Haken dort wieder weg = Ersatz
+         wieder weg);
+         ein Passwortmanager (KeePassXC, Bitwarden) ist nicht
+         vorausgewählt - bei Bedarf selbst anhaken.
+         Einen Eintrag anklicken -> unten stehen winget-ID, Open Source
+         ja/nein und die Webseite.
+         "[im Alltagskonto]" = gibt es nur pro Konto (Discord, Spotify,
+         Signal, Obsidian, Store-Apps wie WhatsApp) - wird beim ersten
+         Anmelden des Alltagskontos installiert.
+         Schalter unten im Reiter:
+           "Kategorie an" = alle im gerade offenen Unter-Reiter anhaken
+           "Alle an"      = wirklich alle (fragt nach - dauert Stunden)
+           "Alle aus"     = alle Haken weg (dann gezielt einzelne an)
+           "Wie Profil"   = zurück auf den Stand des geladenen Profils
+                            (ohne geladene Datei: Vorgabe Office/Gaming)
+         TIPP: Hast du schon ein gespeichertes Profil (5.8), zuerst
+         unten "Profil laden..." - dann stimmen alle Reiter auf einmal,
+         und du musst nur noch die Passwörter eintippen.
+
+[ ] 5.6b Reiter "Standard-Apps": legt fest, welches Programm welche
+         Dateien öffnet - für alle Konten. Zeilen: Webbrowser, PDF,
+         Bilder, Videos, Musik, Text, Archive, Office-Dokumente, E-Mail.
+         Die Zeilen folgen automatisch deiner Programmauswahl: Hakst du
+         im Reiter Programme einen Ersatz an (z. B. Firefox, weil Edge
+         entfernt wird), steht hier sofort genau dieses Programm - nicht
+         mehr "Automatisch". Beispiel Office-Profil: Webbrowser ->
+         Firefox, PDF -> PDF-XChange Editor, Videos/Musik -> VLC,
+         Archive -> 7-Zip, Office-Dokumente -> LibreOffice. Bilder und
+         Text -> "Nicht ändern" (Fotos und Editor bleiben); entfernst du
+         sie, werden IrfanView bzw. Notepad++ angehakt und eingetragen.
+         Ohne passenden Ersatz steht "Nicht ändern" (Windows-Programm
+         bleibt). Von Hand gewählte Zeilen behält die Oberfläche bei.
+         Fehlt ein gewähltes Programm später auf dem PC, meldet die
+         Einrichtung das mit [!!] statt still etwas anderes zu nehmen.
+         Wirkt ab dem nächsten Anmelden (also nach dem automatischen
+         Neustart) und wird bei JEDEM Anmelden wieder so gesetzt. Selbst
+         in Windows umgestellt? Dann beim nächsten Anmelden wieder wie
+         hier - dauerhaft ändern über Start.cmd -> dieser Reiter.
+
+[ ] 5.7  Reiter "Grafik": "Keine dedizierte Grafikkarte (Office)" bzw.
+         "Automatisch". Haken "Link zur Treiberseite des
+         Geräteherstellers" drin lassen.
+
+[ ] 5.8  Profil: Beim Druck auf "Start" wird deine Auswahl AUTOMATISCH
+         gesichert (garantiert ohne Passwörter und Produktschlüssel -
+         wird beim Speichern herausgefiltert, alte Profildateien werden
+         beim Öffnen der Oberfläche bereinigt, die Prüfung kontrolliert
+         es) - auf dem Stick im Ordner
+         Windows-Einrichtung\Profile und auf C:\ProgramData\Einrichtung\
+         Profile. Beim nächsten Mal (oder nach einem Abbruch) einfach
+         unten "Letztes Profil laden" drücken -> alle Haken sind wieder
+         da, nur die Passwörter neu eintragen. "Profil speichern..." /
+         "Profil laden..." gibt es weiterhin für eigene Vorlagen.
+
+[ ] 5.9  Unten in der Leiste:
+         - "Danach automatisch: Neustart, Updates bis aktuell, Prüfung"
+           -> angehakt lassen.
+         - "Netzwerk bis zur Programminstallation trennen" -> bei der
+           Erstinstallation schon angehakt. Steckt ein Kabel, bleibt
+           der Laptop offline, bis die Programme Internet brauchen.
+         - Ganz unten rechts: "Start" und "Abbrechen" (immer sichtbar,
+           auch ohne Vollbild).
+         PROBELAUF: Haken bei "Probelauf (nur anzeigen, nichts ändern)"
+         -> "Start". In der Bildschirmmitte erscheint das
+         Fortschrittsfenster mit
+         einer Liste, was passieren würde. Am Ende fragt ein Fenster
+         "Oberfläche erneut öffnen, um jetzt echt einzurichten?" -> Ja.
+
+[ ] 5.10 ECHTER LAUF: Die Oberfläche öffnet sich mit deiner Auswahl.
+         Haken bei "Probelauf" ENTFERNEN, im Reiter "Konten" die
+         Passwörter NEU eingeben (werden aus Sicherheitsgründen nicht
+         gemerkt). Haken "Danach automatisch: Neustart, Updates bis
+         aktuell, Prüfung" DRIN LASSEN -> "Start".
+
+
+---------------------------------------------------------------------
+ TEIL 6 - DIE EINRICHTUNG LÄUFT
+---------------------------------------------------------------------
+
+[ ] 6.1  Nach "Start" siehst du nur noch das FORTSCHRITTSFENSTER
+         (Bildschirmmitte, bleibt im Vordergrund; ein offenes
+         Startmenü wird dabei geschlossen; Haken "Immer im
+         Vordergrund" unten zum Abschalten). Darin:
+         - oben: was gerade passiert, Gesamtfortschritt in % und ein
+           Balken für den aktuellen Schritt (z. B. "Programm 3 von 9",
+           später "Update 2 von 5")
+         - darunter die Liste: grün = erledigt, orange = Problem (es
+           geht trotzdem weiter), grau = Hinweis
+         - gelbe Leiste mit Knöpfen, wenn du etwas tun sollst
+         Das Fenster lässt sich minimieren, aber erst am Ende schließen.
+
+[ ] 6.2  Nur bei Pro mit BitLocker: Zeile "Schlüssel gespeichert ..."
+         -> die Datei BitLocker-Schluessel-....txt liegt auf dem Stick.
+         Später auf einen zweiten Stick kopieren UND ausdrucken.
+         Ohne diesen Schlüssel kommst du im Notfall nicht mehr an
+         deine Daten.
+
+[ ] 6.3  Internet: Sobald die Programme dran sind, wird das Netz
+         freigegeben. Steckt ein Kabel, geht es sofort weiter.
+         Sonst öffnet sich rechts unten die WLAN-Liste und das
+         Fortschrittsfenster zeigt gelb "Für die Programme wird jetzt
+         Internet gebraucht": dein WLAN anklicken -> "Verbinden" ->
+         Passwort. Falls gefragt wird, ob der PC von anderen Geräten
+         gefunden werden soll -> NEIN. Danach geht es von selbst weiter.
+         Liste zugeklappt? Knopf "WLAN-Liste öffnen".
+         Kein WLAN in der Liste? -> Problem P4.
+
+[ ] 6.4  Die Programme werden nacheinander installiert (5-20 Minuten),
+         danach Lizenz (falls Key eingetragen), Standard-Apps,
+         Oberfläche und eine erste Prüfung.
+
+[ ] 6.5  Neustart: Gelbe Leiste "Teil 1 ist fertig. Der PC startet neu"
+         mit Countdown (60 Sekunden). Knopf "Jetzt neu starten" =
+         sofort, sonst startet er von selbst neu.
+
+[ ] 6.6  Nach dem Neustart zeigt der Anmeldebildschirm zuerst den
+         Hinweis "Windows-Einrichtung läuft noch" -> OK.
+         Jetzt wieder mit VERWALTUNG anmelden (NICHT mit dem
+         Alltagskonto). Das Fortschrittsfenster erscheint und zeigt
+         "Bitte in diesem Konto bleiben ...". Updates und Prüfung laufen
+         im Hintergrund weiter, auch über weitere Neustarts - nach
+         jedem Neustart wieder mit Verwaltung anmelden.
+         Erst wenn "Einrichtung abgeschlossen" erscheint, geht es mit
+         dem Alltagskonto weiter (Teil 7).
+         Ablauf im Hintergrund:
+         - ca. 1 Minute nach dem Hochfahren: Suche nach Updates, dann
+           Update für Update laden und installieren (sichtbar im
+           Fenster)
+         - braucht es einen Neustart: gelbe Leiste mit 5-Minuten-
+           Countdown und "Jetzt neu starten" (ist niemand angemeldet,
+           startet er nach 20 Sekunden). Offene Dateien speichern.
+         - wiederholt sich (meist 1-3 Mal, höchstens 8), bis nichts
+           mehr kommt; dann Store-App-Updates, Nachkontrolle der
+           Microsoft-Apps und Abschlussprüfung
+         - Abschlussprüfung für System UND alle Konten. Gibt es eine
+           Abweichung, wird sie automatisch nach deiner Auswahl
+           nachgebessert und noch einmal geprüft.
+         - am Ende: Ergebnis im Fenster und als Meldung, z. B. "Alles
+           perfekt: ... 330 Punkte OK, keine Abweichungen" - oder was
+           offen blieb - und die Autostart-Frage (7.5). Danach schließt
+           sich das Fortschrittsfenster von selbst. Der Hinweis
+           am Anmeldebildschirm verschwindet, die Automatik löscht sich.
+         Dauer: je nach Internet 20-90 Minuten. Laptop am Netzteil
+         lassen.
+         Am Ende zeigt das Fenster in Verwaltung "Fertig. Jetzt
+         abmelden ..." mit dem Knopf "Abmelden" (die Schlussmeldung
+         fragt dasselbe). Jetzt ist Abmelden richtig - es läuft nichts
+         mehr, das abgebrochen werden könnte.
+
+
+---------------------------------------------------------------------
+ TEIL 7 - ERSTER START IM ALLTAGSKONTO
+---------------------------------------------------------------------
+
+[ ] 7.1  Erst NACH "Einrichtung abgeschlossen" in Verwaltung (6.6):
+         Abmelden -> unten links dein Alltagskonto anklicken ->
+         Passwort eingeben. (Der Hinweis am Anmeldebildschirm ist dann
+         schon verschwunden.)
+[ ] 7.2  Beim ersten Anmelden werden die Komfort-Einstellungen gesetzt
+         (Desktop flackert einmal kurz - normal), Programme, die es nur
+         pro Konto gibt, installieren sich im Hintergrund. In der Mitte
+         erscheint kurz das Fortschrittsfenster mit der Autostart-
+         Frage (7.5).
+[ ] 7.3  Kontrolle: Rechtsklick auf den Desktop zeigt das alte, volle
+         Menü; Windows ist dunkel; Dateiendungen sind sichtbar;
+         Startmenü -> "Alle" ist eine Liste.
+[ ] 7.4  Zur Kontrolle: Windows + I -> "Windows Update" -> "Sie sind
+         auf dem neuesten Stand".
+[ ] 7.5  AUTOSTART-FRAGE (kommt in jedem Konto genau EINMAL - danach
+         startet das Fortschrittsfenster nie wieder von selbst; nach
+         dem Ende der Einrichtung bleibt kein Einrichtungs-Autostart):
+         Liste aller Programme, die beim Anmelden starten.
+         Haken = bleibt. Vorgeschlagen sind nur Defender/Virenschutz
+         sowie Grafik-, Audio-, Touchpad- und Hotkey-Treiber; alles
+         andere (z. B. Discord, Steam, Spotify, Store-Helfer) ist
+         abgehakt und wird abgeschaltet. PowerShell-Einträge werden
+         immer abgeschaltet. -> Haken nach Wunsch -> "Übernehmen".
+         Einträge "für alle Konten" brauchen die Adminabfrage
+         (.\Verwaltung). Nichts wird gelöscht: Wieder einschalten im
+         Task-Manager (Strg + Umschalt + Esc) -> "Autostart-Apps".
+         "Später fragen" = beim nächsten Anmelden wieder.
+         Danach kann das Fenster geschlossen werden.
+[ ] 7.6  Treiber: Auf dem Desktop liegt "Treiber HP" -> öffnet die
+         HP-Supportseite -> Modell eingeben -> fehlende Treiber laden.
+         Meist reicht Windows Update; HP-Seite nur, wenn im Geräte-
+         Manager (Rechtsklick Startknopf -> Geräte-Manager) ein gelbes
+         Ausrufezeichen steht.
+         Treiber aus Windows Update installiert die Automatik selbst.
+         FIRMWARE/BIOS (z. B. "HP Inc. - Firmware") bewusst NICHT - ein
+         abgebrochenes BIOS-Update kann den Laptop unbrauchbar machen.
+         Das bei Bedarf von Hand: am Netzteil, über HP Support
+         Assistant oder die HP-Seite, nichts anderes nebenher.
+[ ] 7.7  Adminabfragen ab jetzt: Windows fragt nach Benutzername und
+         Passwort. Benutzername:  .\Verwaltung   (mit Punkt und
+         Backslash), dazu das Passwort von Verwaltung.
+[ ] 7.8  Abschlussprüfung: Startknopf -> "Windows-Zentrale" ->
+         Adminabfrage (.\Verwaltung) -> "Nur prüfen". Geprüft werden
+         System UND alle Konten. Alles grün = fertig. (Pruefen.cmd auf
+         dem Stick macht dasselbe.) Stick sicher aufbewahren - die
+         Zentrale braucht ihn nicht mehr.
+[ ] 7.9  Daten vom Handy mit LocalSend
+         - Aufs Handy die App "LocalSend" (App Store / Play Store).
+         - Handy und Laptop im SELBEN WLAN.
+         - Am Laptop: Startknopf -> LocalSend öffnen. Am Handy: LocalSend
+           -> "Senden" -> Dateien wählen -> den Laptop antippen.
+         - Am Laptop erscheint eine Anfrage -> "Annehmen". Die Dateien
+           landen im Ordner Downloads.
+         - Das Skript hat die Firewall nur für Geräte im eigenen Netz
+           geöffnet (Port 53317). Kommt beim ersten Start trotzdem eine
+           Firewall-Meldung: "Zulassen" mit .\Verwaltung - NICHT
+           "Abbrechen" (das würde LocalSend dauerhaft sperren).
+         - In fremden WLANs (Café, Hotel) LocalSend geschlossen lassen.
+
+[ ] 7.10 (Empfohlen) Jetzt ein Abbild mit Rescuezilla erstellen - wie
+         beim Gaming-PC (Anleitung im Pro-Dokument, Phase 9).
+
+
+---------------------------------------------------------------------
+ TEIL 8 - DIE WINDOWS-ZENTRALE (ab jetzt für alles)
+---------------------------------------------------------------------
+
+Startknopf -> "Windows-Zentrale" (oder Start.cmd vom Stick) ->
+Adminabfrage (.\Verwaltung). Ein Fenster für alles:
+
+ LINKS OBEN  "Auswahloberfläche öffnen ..." = Einrichten / Ändern
+             (Konten hinzufügen, Programme nachinstallieren, Sicherheit,
+             Standard-Apps ... - mit Probelauf, wie in Teil 5)
+
+ LINKS UNTEN Wartung, Pflege, Prüfung - Haken setzen, dann:
+   "Wartung starten" (läuft im Hintergrund, auch über Neustarts):
+     - Windows-Updates + optionale Updates (mit Neustarts)
+     - Treiber-Updates über Windows Update, meldet Geräte mit
+       Treiberproblemen
+     - Microsoft-Store-Apps aktualisieren
+     - Programme: fehlende nachinstallieren, alle aktualisieren
+     - Aufräumen: temporäre Dateien, Update-Reste
+     - (abgehakt) Systemdateien prüfen + reparieren (DISM + SFC)
+     - Virenscan (Defender-Schnellscan)
+     - entfernte Microsoft-Apps wieder entfernen
+     - REPARIEREN: alle Einstellungen für System UND alle Konten
+       wieder herstellen
+     - Abschlussprüfung + Autostart-Frage
+   "Nach Windows-Updates: Reparieren + Prüfen" = schnell, ohne
+     Neustart: stellt alles wieder her, was ein Windows-Update
+     zurückgesetzt hat, und prüft danach alle Konten.
+   "Nur prüfen" = ändert nichts.
+
+ RECHTS      Status (Windows-Version, Aktivierung, Virenschutz,
+             BitLocker, Speicher, letzte Prüfung/Wartung) und
+             Werkzeuge: Fortschrittsfenster, Autostart prüfen,
+             Geräte-Manager, Treiberseite des Herstellers, Windows-
+             Sicherheit, Windows Update, Protokolle.
+
+Empfehlung: einmal im Monat (nach dem Patchday, 2. Dienstag) "Wartung
+starten" mit den vorausgewählten Haken. Nach größeren Windows-Updates
+zusätzlich "Reparieren + Prüfen".
+
+
+---------------------------------------------------------------------
+ PROBLEME UND LÖSUNGEN
+---------------------------------------------------------------------
+
+P1  Setup bricht ab mit "Windows konnte die Antwortdatei ... nicht
+    analysieren/verarbeiten" oder beim Konto anlegen.
+    -> Stick am PC einstecken, autounattend.xml mit dem Editor öffnen,
+       <Group>Administrators</Group> ersetzen durch
+       <Group>Administratoren</Group>, speichern, Teil 2 neu beginnen.
+
+P2  Es kommen doch Fragen nach Region, Netzwerk oder Microsoft-Konto.
+    -> Die autounattend.xml wurde nicht gefunden: liegt sie wirklich im
+       Hauptverzeichnis (neben setup.exe)? Hat Rufus eine eigene
+       geschrieben (Schritt 1.4 ohne Haken wiederholen)?
+
+P3  Nach der Installation erscheint die Oberfläche nicht.
+    -> Teil 4.3. Liegt der Ordner Windows-Einrichtung im Haupt-
+       verzeichnis des Sticks? Steckt der Stick?
+
+P4  Kein WLAN in der Liste.
+    -> WLAN-Treiber fehlt. Den Treiber aus Schritt 0.4 vom Stick
+       installieren (Adminabfrage). Oder kurz ein Netzwerkkabel bzw.
+       Handy per USB-Tethering anschließen (Handy: Einstellungen ->
+       Hotspot -> USB-Tethering).
+       Oder im Fortschrittsfenster "Ohne Internet weiter": dann werden
+       die Programme übersprungen und später mit Start.cmd nachgeholt.
+
+P5  Einzelne Programme mit [!!] und Fehlercode.
+    -> Oft schon installiert oder kurz nicht erreichbar. Nachholen im
+       Alltagskonto: Rechtsklick auf den Startknopf -> "Terminal" ->
+       eintippen (Beispiel Firefox):
+          winget install --id Mozilla.Firefox.de --exact
+       Adminabfrage mit .\Verwaltung bestätigen. Die ID steht in der
+       Oberfläche hinter dem Programmnamen bzw. im Protokoll.
+
+P6  Passwort von "Verwaltung" vergessen.
+    -> Ohne Admin-Konto keine Installationen mehr. Deshalb aufschreiben.
+       Notfall: Windows neu installieren (deshalb das Abbild, 7.10).
+
+P7  Oberfläche aus Versehen geschlossen, bevor "Start" gedrückt wurde.
+    -> Rote Warnung im Fenster: "Verwaltung" hat noch das vorläufige
+       Passwort. Sofort Start.cmd vom Stick erneut starten.
+
+P8  LocalSend findet den Laptop nicht.
+    -> Beide im selben WLAN? Ein Gäste-WLAN trennt Geräte voneinander.
+       Am Handy im LocalSend-Sendebildschirm "Manuell senden" -> die
+       IP-Adresse des Laptops eingeben (steht in LocalSend am Laptop
+       unter "Empfangen"). Pruefen.cmd muss "LocalSend-Firewallregeln"
+       als [OK] zeigen.
+
+P9  Falsche Tastatur (Y und Z vertauscht).
+    -> Windows + Leertaste wechselt das Layout. Dauerhaft: Windows + I
+       -> Zeit und Sprache -> Sprache und Region -> Deutsch ... ->
+       Tastaturen.
+
+P10 Nach den Neustarts kommt keine Meldung "Einrichtung
+    abgeschlossen".
+    -> Erst ins Fortschrittsfenster schauen: Steht dort "Update 3 von
+       7: ...", läuft es - große Updates brauchen auch mal 20 Minuten
+       ohne sichtbare Bewegung. NICHT parallel von Hand in Windows
+       Update installieren, das bremst beide aus.
+    -> Kein Internet beim Start? Dann kommt "Kein Internet ..." und es
+       geht beim nächsten Start weiter: WLAN verbinden, neu starten.
+    -> Stand ansehen: Ordner C:\ProgramData\Einrichtung\logs ->
+       neueste Datei "nachlauf-....log".
+    -> Automatik von Hand anstoßen: Startknopf -> "Aufgabenplanung"
+       eintippen -> Aufgabenplanungsbibliothek -> "Einrichtung-
+       Nachlauf" -> Rechtsklick -> "Ausführen" (Adminabfrage).
+       Ist die Aufgabe nicht mehr da, ist alles schon erledigt.
+    -> Ein Update scheitert immer wieder: nach 8 Durchgängen hört die
+       Automatik von selbst auf und prüft trotzdem. Das Update dann
+       einmal von Hand in Windows Update anstoßen.
+
+P11 Ein Microsoft-Programm (z. B. Dev Home, Outlook) ist nach den
+    Updates wieder da.
+    -> Windows Update installiert manche Apps neu. Die Automatik
+       entfernt sie am Ende ein zweites Mal. Taucht später wieder eins
+       auf: Start.cmd vom Stick starten, "Profil laden..." -> nur
+       Reiter "Microsoft-Apps" lassen -> Start.
+
+P12 Fragen nach dem Standort (Windows oder AMD Software).
+    -> Die Option "Standort aus" im Reiter Datenschutz schaltet den
+       Standortdienst systemweit ab und unterdrückt die Abfrage pro
+       Konto. Kommt sie trotzdem: "Nein"/"Ablehnen" klicken und
+       Pruefen.cmd laufen lassen - "Standort" muss [OK] zeigen.
+
+P13 Startmenü zeigt "Alle" wieder als Raster/Kategorien.
+    -> Windows stellt das nach Richtlinien-Updates manchmal zurück.
+       Der Infobereich-Helfer stellt es beim nächsten Anmelden wieder
+       auf "Liste" (Option "Startmenü: Alle als Liste" muss angehakt
+       sein) - also einmal ab- und wieder anmelden.
+
+P14 Eine Datei öffnet noch mit dem falschen Programm (oder Windows
+    fragt "Wie möchten Sie diese Datei öffnen?").
+    -> Die Zuordnung greift erst nach dem nächsten Anmelden: einmal
+       ab- und wieder anmelden.
+    -> Pruefen.cmd im Alltagskonto zeigt "Standard-App ...: nicht
+       zugeordnet für .xyz"? Dann war das Programm bei der Einrichtung
+       noch nicht installiert (z. B. ohne Internet): Start.cmd erneut
+       starten -> "Profil laden..." -> Start. Danach ab-/anmelden.
+    -> Im Protokoll steht "kein passendes Programm installiert": im
+       Reiter Programme das Programm anhaken.
+    -> Im Konto VERWALTUNG (und in Konten, die es schon vor der
+       Einrichtung gab) setzt Windows die Vorgaben nicht - das zeigt
+       die Prüfung nur als Hinweis [i]. Für Verwaltung (nur für
+       Adminabfragen) egal; sonst einmal von Hand: Einstellungen ->
+       Apps -> Standard-Apps.
+
+P15 Ein Programm fehlt im Alltagskonto, obwohl es installiert wurde.
+    -> Manche Programme gibt es nur pro Konto. Das Skript erkennt das
+       und meldet "[i] ... wird beim ersten Anmelden des Alltags-
+       kontos installiert". Die Installation läuft dort im Hintergrund
+       (bis zu 5 Minuten nach dem Anmelden, Internet nötig).
+    -> Store-Apps (WhatsApp, ChatGPT) brauchen den Microsoft Store -
+       im Reiter Microsoft-Apps "Store entfernen" dann NICHT anhaken.
+
+
+P16 Das Fortschrittsfenster ist weg.
+    -> Minimiert? In der Taskleiste "Windows-Einrichtung - Fortschritt"
+       anklicken. Nach dem Neustart erscheint es beim Anmelden von
+       selbst - notfalls abmelden und wieder mit Verwaltung anmelden
+       (solange die Einrichtung läuft).
+    -> Den Stand gibt es immer auch im Ordner
+       C:\ProgramData\Einrichtung\logs.
+
+P17 Nach einem Abbruch hat der Laptop kein Netzwerk.
+    -> Normalerweise gibt das Skript das Netz immer wieder frei, auch
+       bei Abbruch. Falls nicht: Start.cmd erneut starten und gleich
+       wieder "Abbrechen" - das gibt das Netz frei. Oder: Rechtsklick
+       auf den Startknopf -> Netzwerkverbindungen -> Erweiterte
+       Netzwerkeinstellungen -> beim Adapter "Aktivieren".
+
+P18 Store oder Xbox-App fragt beim Anmelden "Überall auf diesem Gerät
+    verwenden?"
+    -> Immer "Nur Microsoft-Apps" bzw. "Nur diese App" wählen. Mit der
+       Option aus 5.2b ist die Umwandlung ohnehin gesperrt; dein Konto
+       bleibt lokal. Geht die Anmeldung gar nicht: Pruefen.cmd -> im
+       Reiter Microsoft-Apps dürfen "Xbox"/"Store" nicht entfernt sein.
+
+P19 Windows ist nicht aktiviert (Pruefen.cmd: "Windows aktiviert"
+    [!!]).
+    -> Internet verbinden und ein paar Minuten warten - digitale
+       Lizenz und BIOS-Key aktivieren sich online von selbst.
+    -> Eigener Key: Start.cmd -> Reiter Konten -> "Produktkey"
+       eintragen -> Start. Oder Windows + I -> System -> Aktivierung
+       -> "Product Key ändern". Ein Pro-Key auf Home wechselt dort
+       auch gleich die Edition.
+
+
+P20 Das Fortschrittsfenster zeigt eine Fehlermeldung oder geht nicht
+    auf.
+    -> Die Einrichtung läuft trotzdem weiter; der Stand steht dann im
+       Protokollfenster (Taskleiste). Den Fehlertext findest du in
+       %TEMP%\einrichtung-fortschritt-fehler.txt (Windows + R ->
+       %TEMP% eintippen). Foto oder Text davon schicken.
+
+P21 Nach "[Streng]"-Punkten geht etwas nicht mehr (Programm startet
+    nicht, Hotel-WLAN, NAS, Datei speichern blockiert).
+    -> Zentrale -> Auswahloberfläche -> Reiter Cybersicherheit -> den
+       passenden [Streng]-Haken entfernen -> Start. Abgewählte Punkte
+       werden auf Windows-Standard zurückgesetzt.
+    -> Ransomware-Schutz: einzelne Programme freigeben unter Windows-
+       Sicherheit -> Viren- & Bedrohungsschutz -> Ransomware-Schutz ->
+       "App durch überwachten Ordnerzugriff zulassen".
+
+P22 Nach einem großen Windows-Update stimmen Einstellungen nicht mehr
+    (Werbung, Apps zurück, NetBIOS an ...).
+    -> Zentrale -> "Nach Windows-Updates: Reparieren + Prüfen". Stellt
+       System und alle Konten wieder her und prüft danach.
+
+
+P24 Nach dem Aufwecken (dunkler Bildschirm, neu angemeldet) ist die
+    WLAN-Auswahl unten rechts eingefroren, nur die Systemsteuerung
+    geht noch.
+    -> Startknopf -> "Windows-Zentrale" -> "WLAN / Netzwerk reparieren
+       (bei hängender WLAN-Liste)". Startet die Schnellansicht neu,
+       setzt den WLAN-Adapter zurück und öffnet die WLAN-Liste wieder.
+       Ohne Zentrale: Strg + Umschalt + Esc -> Task-Manager ->
+       "Windows-Explorer" -> Neu starten. Vorbeugend: Option
+       "WLAN ohne Energiesparen" im Reiter Komfort (bei Laptops
+       vorausgewählt). Kommt es trotzdem oft vor: neuesten WLAN-
+       Treiber von der HP-Seite installieren.
+
+P25 Edge ist nach der Einrichtung noch da, obwohl "Edge entfernen"
+    angehakt war.
+    -> Microsoft erlaubt das Entfernen nur für Geräte im EWR. Die
+       Einrichtung versucht zwei Wege: erst offiziell (Geräteregion
+       Deutschland), dann eine bekannte Umgehung, die auch andere
+       Tools benutzen. Lehnt Windows beides ab, steht das als Hinweis
+       [i] in der Prüfung (keine Abweichung mehr) - neuer Versuch erst
+       nach dem nächsten Edge-Update, nicht bei jeder Wartung. Edge
+       bleibt dann, ist aber nicht Standard - Firefox öffnet alles.
+
+P23 Nach "Start" passiert nichts, im schwarzen Fenster beginnt der
+    Titel mit "Auswählen".
+    -> Jemand hat in das Protokollfenster geklickt - das hält ältere
+       Fassungen an. In das Fenster klicken und Esc drücken, dann geht
+       es sofort weiter. Ab dieser Fassung ist das abgeschaltet und
+       das Fenster startet minimiert.
+
+
+---------------------------------------------------------------------
+ BEWÄHRTE LÖSUNGSWEGE (aus dem ersten Testlauf)
+---------------------------------------------------------------------
+
+ - Erst Probelauf, dann echt: zeigt jeden Schritt, ändert nichts.
+ - Während der Einrichtung nur aufs Fortschrittsfenster schauen und
+   nichts parallel von Hand machen (vor allem kein Windows Update) -
+   die Automatik läuft auch dann, wenn sonst nichts zu sehen ist.
+ - Nach dem ersten Neustart in VERWALTUNG bleiben, bis "Einrichtung
+   abgeschlossen" kommt - erst dann abmelden und ins Alltagskonto.
+ - Profil speichern und beim nächsten Gerät "Profil laden..." - dann
+   nur noch Passwörter eintippen. Im Reiter "Programme" helfen
+   "Alle an" / "Alle aus" / "Wie Profil".
+ - Start.cmd darf beliebig oft laufen: Fertiges wird übersprungen,
+   bestehende Konten bleiben, Passwortfelder leer = Passwort bleibt.
+ - Ein Fehler bricht nie alles ab: jeder Schritt meldet [OK] oder [!!],
+   der Rest läuft weiter. Gelbe Zeilen fotografieren.
+ - Prüfen (Zentrale oder Pruefen.cmd) prüft genau das, was angehakt war -
+   System und alle Konten. Ziel: 0 Abweichungen. Abweichungen nach
+   Updates: "Reparieren + Prüfen".
+ - Alltagskonto-Passwort: nur nötig, wenn das Konto neu angelegt wird;
+   besteht es schon, Feld leer lassen.
+ - Energieprofil "Beste Leistung" wird nur am Netzteil gesetzt - also
+   die Einrichtung am Netzteil laufen lassen.
+ - BitLocker vor einer Neuinstallation nicht entschlüsseln: die Neu-
+   installation löscht das Laufwerk ohnehin. Schlüsseldatei vom Stick
+   gilt danach nicht mehr - die neue ersetzt sie.
+ - Updates, Neustarts, Nachkontrolle und Prüfung laufen automatisch
+   (6.6). Am Ende kommt eine Meldung - vorher nichts ausschalten.
+ - Standard-Apps über den Reiter "Standard-Apps" statt in den Windows-
+   Einstellungen ändern - die Einstellung wird bei jedem Anmelden
+   wieder hergestellt.
+ - Eigene Programme dauerhaft in die Liste aufnehmen: programme.csv im
+   Ordner Windows-Einrichtung mit dem Editor öffnen und eine Zeile nach
+   dem Muster der anderen ergänzen (winget-ID: winget search <Name>).
+
+
+---------------------------------------------------------------------
+ WAS DU AM ENDE HAST
+---------------------------------------------------------------------
+
+ - Alltagskonto ohne Adminrechte, Admin-Konto "Verwaltung" nur für
+   Adminabfragen, eingebautes Administrator-Konto deaktiviert
+ - Alle Passwörter von dir selbst vergeben
+ - Microsoft-Apps, Werbung, Copilot, Recall, Widgets, OneDrive weg
+ - Telemetrie auf Minimum, Firewall und Netzwerk gehärtet
+ - Deine Programme installiert, alles prüfbar mit Pruefen.cmd
+ - Passende Standard-Apps (PDF, Bilder, Video, Musik, Text, Archive,
+   Office, Browser, Mail) für alle Konten
+ - Windows vollständig aktualisiert (inkl. optionaler Updates und
+   Store-Apps) - automatisch, mit sichtbarem Fortschritt
+ - Autostart aufgeräumt: nur Sicherheit und Treiber, kein PowerShell
+ - Cybersicherheit: Defender-ASR, Kernisolierung, Anmeldeschutz u. v. m.
+ - Die Windows-Zentrale für Prüfung, Reparatur, Updates, Treiber,
+   Programme und Pflege - ohne Stick, aus dem Startmenü
+ - LocalSend für Dateien vom/zum Handy, nur im eigenen Netz erreichbar

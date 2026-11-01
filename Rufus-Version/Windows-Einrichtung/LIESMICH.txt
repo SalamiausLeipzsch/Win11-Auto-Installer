@@ -1,0 +1,145 @@
+﻿WINDOWS-EINRICHTUNG PER AUSWAHLOBERFLÄCHE
+==========================================
+
+Für: Windows 11 Home, Pro, Enterprise/LTSC. Die Edition wird erkannt, nicht verfügbare
+Punkte sind in der Oberfläche markiert und lassen sich nicht anhaken.
+
+Inhalt des Ordners
+------------------
+  Start.cmd      Doppelklick -> Windows-Zentrale (fragt nach Adminrechten); bei der Erstinstallation
+                 direkt die Auswahloberfläche. Nach der Einrichtung auch im Startmenü: "Windows-Zentrale"
+  Pruefen.cmd    Doppelklick -> prüft System + alle Konten, ändert nichts
+  setup.ps1      die eigentliche Einrichtung (wird von Start.cmd gestartet)
+  konto.ps1      Einstellungen pro Konto (läuft automatisch beim nächsten Anmelden)
+  programme.csv  Programmliste (rund 250, kategorisiert, mit dem Editor erweiterbar)
+  fortschritt.ps1  Fortschrittsfenster (startet von selbst)
+  autostart.ps1  Hilfsskript für die Autostart-Frage am Ende (mit Adminabfrage)
+  Treiber\       (optional, selbst anlegen) Grafiktreiber-Installer (.exe) hier hineinlegen
+
+Weg A: ALLES AUTOMATISCH (empfohlen, ab Neuinstallation)
+-------------------------------------------------------
+ 1. Installations-Stick erstellen: Rufus OHNE Zusatzoptionen (im Rufus-Dialog alle Haken
+    entfernen) oder das Media Creation Tool von Microsoft.
+ 2. Den Inhalt des ZIP-Archivs ins HAUPTVERZEICHNIS des Sticks kopieren (neben setup.exe):
+      autounattend.xml
+      Windows-Einrichtung\        (dieser ganze Ordner)
+    Optional: anderen Namen als "Verwaltung" -> autounattend.xml mit dem Editor öffnen,
+    "Verwaltung" an den 3 markierten Stellen ersetzen.
+    Für Pro auf einem Gerät mit Home-Schlüssel: auf dem Stick im Ordner "sources" eine Datei
+    ei.cfg mit diesem Inhalt anlegen (dann fragt das Setup nach der Edition):
+      [EditionID]
+      Professional
+      [Channel]
+      Retail
+ 3. Vom Stick booten (ein Netzwerkkabel darf stecken: das Netz wird automatisch getrennt,
+    bis die Programme es brauchen). Du wählst nur Edition/Schlüssel und die Festplatte.
+    Stick stecken lassen!
+ 4. Die Ersteinrichtung wird komplett übersprungen. Windows meldet "Verwaltung" einmal
+    automatisch an und öffnet sofort die Auswahloberfläche.
+ 5. In der Oberfläche alles wählen, im Reiter "Konten" ALLE Passwörter festlegen - auch das
+    für "Verwaltung" (Pflicht: ersetzt das vorläufige Passwort "Einrichtung-2026").
+    Optional: eigener Windows-Produktkey (nur wenn nicht schon aktiviert, wird nicht gespeichert).
+    Reiter "Updates & Store": Updates, optionale Updates, Store-Updates (alles vorausgewählt),
+    auf Wunsch Store-/Xbox-Anmeldung nur in den Apps (lokales Konto bleibt lokal).
+    Erst Probelauf, danach fragt ein Fenster, ob jetzt echt eingerichtet werden soll.
+ 6. Am Ende entfernt das Skript die automatische Anmeldung und die Installationsdatei mit dem
+    vorläufigen Passwort von der Festplatte. Neustart, fertig.
+
+Weg B: AUF EINEM SCHON INSTALLIERTEN WINDOWS
+-------------------------------------------
+ 1. Ordner Windows-Einrichtung auf einen Stick kopieren, Netzwerk noch nicht verbinden.
+ 2. Als Admin-Konto anmelden, Start.cmd doppelklicken, Adminabfrage bestätigen.
+ 3. Weiter wie oben ab Schritt 5.
+
+Danach (beide Wege)
+-------------------
+ - Nach "Start" ist nur noch das Fortschrittsfenster zu sehen (Gesamtfortschritt, aktueller
+   Schritt, alle OK/Problem-Meldungen, gelbe Leiste mit Knöpfen wenn du etwas tun sollst).
+   Das Protokollfenster liegt minimiert in der Taskleiste.
+ - Brauchen die Programme Internet, öffnet sich die WLAN-Liste von selbst (Kabel: geht sofort).
+ - Neustart mit 60-Sekunden-Countdown und Knopf "Jetzt neu starten".
+ - Danach: Hinweis am Anmeldebildschirm, mit welchem Konto du dich anmelden sollst. Eine
+   geplante Aufgabe ("Einrichtung-Nachlauf", SYSTEM) installiert Update für Update - sichtbar
+   im Fortschrittsfenster -, startet bei Bedarf neu (Countdown + "Jetzt neu starten"),
+   aktualisiert die Store-Apps, entfernt zurückgekommene Microsoft-Apps und prüft alles.
+ - Nach jedem Neustart mit "Verwaltung" anmelden und dort bleiben, bis "Einrichtung
+   abgeschlossen" erscheint. Erst dann Knopf "Abmelden" -> Alltagskonto. So läuft die
+   Verwaltung komplett durch, bevor das Alltagskonto eingerichtet wird.
+ - Treiber aus Windows Update werden installiert, Firmware/BIOS-Updates bewusst nicht
+   (Risiko bei Abbruch) - die bei Bedarf von Hand am Netzteil.
+ - Am Ende fragt das Fenster in jedem Konto, was im Autostart bleiben soll (Vorschlag: nur
+   Virenschutz und Treiber). Abgeschaltet, nicht gelöscht - im Task-Manager umkehrbar.
+ - Die Hilfs-Aufgaben "Einrichtung-Nachlauf" und "Einrichtung-Fortschritt" werden am Ende der
+   Einrichtung entfernt - danach startet das Fortschrittsfenster NICHT mehr beim Anmelden.
+   Dauerhaft bleibt nur "Einrichtung-Infobereich" (Symbole im Infobereich, Startmenü-Liste;
+   nur kurz beim Anmelden, kein Autostart-Eintrag, kein Dauerlauf).
+   Protokolle: C:\ProgramData\Einrichtung\logs
+ - Zur Kontrolle: Windows-Zentrale -> "Nur prüfen" (oder Pruefen.cmd).
+
+Profile speichern
+-----------------
+"Profil speichern..." legt deine Auswahl als .json ab - garantiert ohne Passwörter und ohne
+Produktschlüssel (beim Speichern herausgefiltert; ältere Profildateien werden beim Öffnen der
+Oberfläche bereinigt; die Prüfung meldet es, falls doch eins drin stünde). Für das nächste
+Gerät mit "Profil laden..." wieder einlesen - so bekommt jedes Gerät seine eigene Auswahl.
+Im Reiter "Programme": "Kategorie an", "Alle an", "Alle aus" und "Wie Profil" (zurück auf das
+geladene Profil bzw. die Vorgabe von Office/Gaming). Die Profildatei merkt sich auch die
+Standard-Apps.
+
+Programmliste und Standard-Apps
+-------------------------------
+ - programme.csv enthält rund 250 bekannte Programme,
+   nach Kategorien sortiert. Eigene Zeilen kannst du mit dem Editor ergänzen
+   (Kategorie;Name;winget-ID;Office 0/1;Gaming 0/1;nur pro Konto 0/1;Beschreibung;Link;OpenSource).
+ - Programme, die winget nur pro Konto anbietet, erkennt das Skript selbst und installiert sie
+   beim ersten Anmelden des Alltagskontos.
+ - Reiter "Standard-Apps": ordnet PDF, Bilder, Videos, Musik, Text, Archive, Office-Dokumente,
+   Links und E-Mail den gewählten Programmen zu. Die Zeilen folgen der Programmauswahl: wer
+   einen Ersatz anhakt (Firefox statt Edge, PDF-XChange, VLC ...), bekommt genau den eingetragen.
+   Bilder bleiben bei Fotos, Text beim Editor; nur wenn Fotos bzw. Editor entfernt werden,
+   kommen IrfanView bzw. Notepad++ dazu. Im Konto Verwaltung (und in Konten, die es vor der
+   Einrichtung schon gab) setzt Windows die Vorgaben nicht - die Prüfung zeigt das nur als [i].
+   Kein Passwortmanager vorausgewählt (KeePassXC/Bitwarden bei Bedarf selbst anhaken). Technik: C:\ProgramData\Einrichtung\Standardapps.xml + Gruppenrichtlinie
+   "Standardzuordnungsdatei" - wird bei jedem Anmelden angewendet, gilt für alle Konten.
+
+Gut zu wissen
+-------------
+ - Nicht angehakte Punkte werden NICHT zurückgesetzt, sondern nur nicht angefasst.
+ - Vor allen Änderungen wird ein Wiederherstellungspunkt angelegt (Windows + R -> rstrui).
+ - BitLocker (Pro, mit TPM): Der Wiederherstellungsschlüssel landet als Textdatei auf dem
+   Stick. Zusätzlich ausdrucken oder an einem zweiten Ort sichern - und den Stick nicht
+   zusammen mit dem Laptop aufbewahren.
+ - Programme werden systemweit installiert. Discord, Spotify, Signal und Obsidian gehen nur
+   pro Konto - die installiert konto.ps1 beim ersten Anmelden des Alltagskontos.
+ - Edge deinstallieren: zuerst offiziell (Geräteregion DE), dann die bekannte Umgehung (wie
+   andere Tools); nur wenn ein anderer Browser installiert ist. Lehnt Windows beides ab,
+   bleibt Edge (nicht Standard), die Prüfung zeigt einen Hinweis, neuer Versuch nach dem
+   nächsten Edge-Update.
+ - Hängt die WLAN-Liste nach dem Aufwecken: Windows-Zentrale -> "WLAN / Netzwerk reparieren".
+ - Den Microsoft Store nur entfernen, wenn du ihn sicher nicht brauchst. winget funktioniert
+   ohne ihn weiter; der App-Installer selbst wird nie entfernt.
+ - Protokolle: C:\ProgramData\Einrichtung\logs und eine Kopie auf dem Stick.
+
+Was die Skripte NICHT machen
+----------------------------
+ - BIOS/UEFI-Einstellungen, Windows-Installation selbst, Abbild-Sicherung (Rescuezilla)
+ - Anmeldungen bei Store, Xbox, Steam usw.
+ - Festplatte partitionieren (wählst du bewusst selbst - es wird nichts automatisch gelöscht)
+
+Windows-Zentrale (alles aus einem Programm)
+-------------------------------------------
+Startmenü -> "Windows-Zentrale" (Adminabfrage). Darin:
+ - Auswahloberfläche: einrichten/ändern (Konten inkl. weitere Konten, Sicherheit, Cybersicherheit,
+   Updates, Apps, Komfort, Programme, Standard-Apps, Grafik)
+ - Wartung starten: Windows-/optionale/Treiber-Updates (mit Neustarts), Store-Apps, Programme
+   (winget), Aufräumen, Systemdateien (DISM+SFC), Virenscan, Reparieren, Prüfen, Autostart
+ - Nach Windows-Updates: Reparieren + Prüfen (System und ALLE Konten, ohne Neustart)
+ - Nur prüfen
+ - Status (Lizenz, Virenschutz, BitLocker, Speicher, letzte Prüfung/Wartung) und Werkzeuge
+   (Fortschritt, Autostart, Geräte-Manager, Herstellerseite, Windows-Sicherheit, Protokolle)
+Cybersicherheit: "[Streng]"-Punkte haben Nebenwirkungen (im Text genannt). Abwählen und Start
+setzt sie auf Windows-Standard zurück.
+
+Automatisch dazu: Beim Druck auf "Start" wird die Auswahl als Profil gesichert (Ordner Profile auf dem Stick und
+auf C:) - "Letztes Profil laden" holt sie mit einem Klick zurück. Am Ende jeder Einrichtung/Wartung werden System
+und alle Konten geprüft, Abweichungen automatisch nachgebessert und das Ergebnis als Meldung angezeigt.

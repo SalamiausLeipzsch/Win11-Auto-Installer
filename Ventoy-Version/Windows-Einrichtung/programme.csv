@@ -1,0 +1,274 @@
+﻿# programme.csv - Programmliste fuer setup.ps1. Eigene Zeilen einfach ergaenzen.
+Kategorie;Name;WingetId;Office;Gaming;Konto;Beschreibung;Link;OpenSource
+Browser;Brave;Brave.Brave;0;0;0;Browser mit Werbeblocker (Chromium);https://www.brave.com;1
+Browser;Chrome;Google.Chrome;0;0;0;Browser von Google;https://www.google.com/chrome/;0
+Browser;Chromium;Hibbiki.Chromium;0;0;0;Chromium (Basis von Chrome);https://www.chromium.org/;1
+Browser;Edge (Microsoft);Microsoft.Edge;0;0;0;Microsoft-Browser (widerspricht 'Edge entfernen');https://www.microsoft.com/edge;0
+Browser;Firefox (deutsch);Mozilla.Firefox.de;1;1;0;Browser, Open Source - deutsche Version;https://www.mozilla.org/firefox/;1
+Browser;Firefox ESR;Mozilla.Firefox.ESR;0;0;0;Firefox mit Langzeitversion (weniger Aenderungen);https://www.mozilla.org/en-US/firefox/enterprise/;1
+Browser;Floorp;Ablaze.Floorp;0;0;0;Firefox-Ableger mit vielen Anpassungen;https://floorp.app/;1
+Browser;Helium;ImputNet.Helium;0;0;0;Schlanker Chromium-Browser mit Datenschutz;https://helium.computer;1
+Browser;LibreWolf;LibreWolf.LibreWolf;0;0;0;Firefox ohne Telemetrie;https://librewolf.net/;1
+Browser;Mullvad Browser;MullvadVPN.MullvadBrowser;0;0;0;Datenschutz-Browser (Tor-Basis, ohne Tor-Netz);https://mullvad.net/browser;1
+Browser;Tor Browser;TorProject.TorBrowser;0;0;0;Anonym surfen ueber Tor;https://www.torproject.org/;1
+Browser;Ungoogled Chromium;eloston.ungoogled-chromium;0;0;0;Chromium ohne Google-Dienste;https://github.com/Eloston/ungoogled-chromium;1
+Browser;Vivaldi;Vivaldi.Vivaldi;0;0;0;Sehr anpassbarer Browser;https://vivaldi.com/;0
+Browser;Waterfox;Waterfox.Waterfox;0;0;0;Firefox-Ableger mit Datenschutz;https://www.waterfox.net/;1
+Browser;Zen Browser;Zen-Team.Zen-Browser;0;0;0;Moderner Firefox-Ableger;https://zen-browser.app/;1
+Office & PDF;Adobe Acrobat Reader;Adobe.Acrobat.Reader.64-bit;0;0;0;PDF-Anzeige von Adobe (gross, mit Werbung fuer Abo);https://www.adobe.com/acrobat/pdf-reader.html;0
+Office & PDF;Foxit PDF Reader;Foxit.FoxitReader;0;0;0;PDF-Anzeige (Foxit);https://www.foxit.com/pdf-reader/;0
+Office & PDF;Joplin;Joplin.Joplin;0;0;0;Notizen und Aufgaben mit Sync;https://joplinapp.org/;1
+Office & PDF;LibreOffice;TheDocumentFoundation.LibreOffice;1;0;0;Office-Paket (Writer, Calc, Impress);https://www.libreoffice.org/;1
+Office & PDF;NAPS2;Cyanfish.NAPS2;0;0;0;Dokumente scannen, als PDF speichern;https://www.naps2.com/;1
+Office & PDF;Obsidian;Obsidian.Obsidian;0;0;1;Notizen in Markdown;https://obsidian.md/;0
+Office & PDF;Okular;KDE.Okular;0;0;0;Dokumentenbetrachter (PDF, E-Book ...);https://okular.kde.org/;1
+Office & PDF;ONLYOFFICE Desktop;ONLYOFFICE.DesktopEditors;0;0;0;Office-Paket, sehr Word/Excel-aehnlich;https://www.onlyoffice.com/desktop.aspx;1
+Office & PDF;PDF-XChange Editor;TrackerSoftware.PDF-XChangeEditor;1;0;0;PDF anzeigen, kommentieren, Formulare ausfuellen (Profi-Funktionen mit Wasserzeichen);https://www.pdf-xchange.com/;0
+Office & PDF;PDF24 Creator;geeksoftwareGmbH.PDF24Creator;0;0;0;PDF-Werkzeuge: zusammenfuegen, umwandeln, verkleinern;https://tools.pdf24.org/en/creator;0
+Office & PDF;PDFgear;PDFgear.PDFgear;0;0;0;PDF bearbeiten (kostenlos);https://www.pdfgear.com/;0
+Office & PDF;PDFsam Basic;PDFsam.PDFsam;0;0;0;PDF teilen, zusammenfuegen, drehen;https://pdfsam.org/;1
+Office & PDF;QOwnNotes;pbek.QOwnNotes;0;0;0;Notizen mit Nextcloud-Sync;https://www.qownnotes.org/;1
+Office & PDF;Simplenote;Automattic.Simplenote;0;0;0;Einfache Notizen mit Sync;https://simplenote.com/;1
+Office & PDF;Sumatra PDF;SumatraPDF.SumatraPDF;0;0;0;PDF lesen, sehr schlank;https://www.sumatrapdfreader.org/free-pdf-reader.html;1
+Office & PDF;Xournal++;Xournal++.Xournal++;0;0;0;Handschriftliche Notizen, PDF beschriften;https://xournalpp.github.io/;1
+Office & PDF;Zotero;DigitalScholar.Zotero;0;0;0;Quellen/Literatur verwalten und zitieren;https://www.zotero.org/;1
+Kommunikation;Betterbird;Betterbird.Betterbird;0;0;0;Thunderbird-Ableger mit Extras (Mail);https://www.betterbird.eu/;1
+Kommunikation;Chatterino;ChatterinoTeam.Chatterino;0;0;0;Twitch-Chat-Programm;https://www.chatterino.com/;1
+Kommunikation;Discord;Discord.Discord;0;1;1;Sprach- und Text-Chat;https://discord.com/;0
+Kommunikation;Dorion;SpikeHD.Dorion;0;0;0;Schlanker Discord-Client;https://spikehd.dev/projects/dorion/;1
+Kommunikation;Element;Element.Element;0;0;0;Matrix-Messenger (verschluesselt);https://element.io/;1
+Kommunikation;Proton Mail;Proton.ProtonMail;0;0;0;Verschluesselte Mail (Proton);https://proton.me/mail;1
+Kommunikation;QTox;Tox.qTox;0;0;0;Verschluesselter Peer-to-Peer-Messenger;https://qtox.github.io/;1
+Kommunikation;Signal;OpenWhisperSystems.Signal;0;0;1;Verschluesselter Messenger;https://signal.org/;1
+Kommunikation;Slack;SlackTechnologies.Slack;0;0;0;Team-Chat Slack;https://slack.com/;0
+Kommunikation;Teams (Microsoft);Microsoft.Teams;0;0;0;Microsoft Teams;https://www.microsoft.com/en-us/microsoft-teams/group-chat-software;0
+Kommunikation;TeamSpeak 3;TeamSpeakSystems.TeamSpeakClient;0;0;0;Sprach-Chat TeamSpeak 3;https://www.teamspeak.com/;0
+Kommunikation;TeamSpeak 6;TeamSpeakSystems.TeamSpeakClient.Beta.6;0;0;0;Sprach-Chat TeamSpeak 6 (Beta);https://www.teamspeak.com/;0
+Kommunikation;Telegram;Telegram.TelegramDesktop;0;0;0;Messenger Telegram;https://telegram.org/;1
+Kommunikation;Thunderbird (deutsch);Mozilla.Thunderbird.de;0;0;0;E-Mail und Kalender - deutsche Version;https://www.thunderbird.net/;1
+Kommunikation;Vesktop;Vencord.Vesktop;0;0;0;Discord-Client mit Erweiterungen;https://vesktop.dev;1
+Kommunikation;Viber;Rakuten.Viber;0;0;0;Messenger Viber;https://www.viber.com/;0
+Kommunikation;WhatsApp Desktop;msstore:9NKSQGP7F2NH;0;0;1;WhatsApp (braucht den Microsoft Store);https://www.whatsapp.com/download;0
+Kommunikation;Zoom;Zoom.Zoom;0;0;0;Videokonferenzen;https://zoom.us/;0
+Medien & Grafik;AIMP;AIMP.AIMP;0;0;0;Musikplayer;https://www.aimp.ru/;0
+Medien & Grafik;Audacity;Audacity.Audacity;0;0;0;Audio aufnehmen und schneiden;https://www.audacityteam.org/;1
+Medien & Grafik;Blender;BlenderFoundation.Blender;0;0;0;3D-Grafik und Animation;https://www.blender.org/;1
+Medien & Grafik;Calibre;calibre.calibre;0;0;0;E-Book-Verwaltung und -Umwandlung;https://calibre-ebook.com/;1
+Medien & Grafik;EarTrumpet;File-New-Project.EarTrumpet;0;0;0;Lautstaerke pro Programm im Infobereich;https://eartrumpet.app/;1
+Medien & Grafik;File Converter;AdrienAllard.FileConverter;0;0;0;Dateien per Rechtsklick umwandeln/verkleinern;https://file-converter.io/;1
+Medien & Grafik;foobar2000;PeterPawlowski.foobar2000;0;0;0;Musikplayer, sehr anpassbar;https://www.foobar2000.org/;0
+Medien & Grafik;GIMP;GIMP.GIMP.3;0;0;0;Bildbearbeitung (wie Photoshop);https://www.gimp.org/;1
+Medien & Grafik;HandBrake;HandBrake.HandBrake;0;0;0;Videos umwandeln/verkleinern;https://handbrake.fr/;1
+Medien & Grafik;ImageGlass;DuongDieuPhap.ImageGlass;0;0;0;Bildbetrachter (modern);https://imageglass.org/;1
+Medien & Grafik;Inkscape;Inkscape.Inkscape;0;0;0;Vektorgrafik (wie Illustrator);https://inkscape.org/;1
+Medien & Grafik;IrfanView;IrfanSkiljan.IrfanView;0;0;0;Bildbetrachter, schnell, mit Grundbearbeitung;https://irfanview.com/;0
+Medien & Grafik;iTunes;Apple.iTunes;0;0;0;Apple-Medienverwaltung / iPhone-Sicherung;https://www.apple.com/itunes/;0
+Medien & Grafik;K-Lite Codec Standard;CodecGuide.K-LiteCodecPack.Standard;0;0;0;Codec-Paket fuer Video/Audio;https://www.codecguide.com/;0
+Medien & Grafik;Media Player Classic - Home Cinema;clsid2.mpc-hc;0;0;0;Schlanker Video-Player (MPC-HC);https://mpc-hc.org/;1
+Medien & Grafik;mpc-qt;mpc-qt.mpc-qt;0;0;0;Video-Player (MPC-Stil, Qt);https://mpc-qt.github.io;1
+Medien & Grafik;mpv;shinchiro.mpv;0;0;0;Minimalistischer Video-Player;https://mpv.io/;1
+Medien & Grafik;nomacs;nomacs.nomacs;0;0;0;Bildbetrachter (Open Source);https://nomacs.org/;1
+Medien & Grafik;OBS Studio;OBSProject.OBSStudio;0;0;0;Bildschirm aufnehmen und streamen;https://obsproject.com/;1
+Medien & Grafik;Paint.NET;dotPDN.PaintDotNet;0;0;0;Einfache Bildbearbeitung;https://www.getpaint.net/;0
+Medien & Grafik;ShareX;ShareX.ShareX;0;0;0;Screenshots und Bildschirmvideos;https://getsharex.com/;1
+Medien & Grafik;Spotify;Spotify.Spotify;0;0;1;Musik-Streaming;https://www.spotify.com/;0
+Medien & Grafik;VLC;VideoLAN.VLC;1;1;0;Spielt fast jedes Video/Audio;https://www.videolan.org/vlc/;1
+Werkzeuge;7-Zip;7zip.7zip;1;1;0;Packprogramm (ZIP, 7z, RAR ...);https://www.7-zip.org/;1
+Werkzeuge;AB Download Manager;amir1376.ABDownloadManager;0;0;0;Download-Manager;https://abdownloadmanager.com/;1
+Werkzeuge;AutoHotkey;AutoHotkey.AutoHotkey;0;0;0;Tastenkuerzel und Automatisierung per Skript;https://www.autohotkey.com/;1
+Werkzeuge;BlurAutoClicker;Blur009.BlurAutoClicker;0;0;0;Autoklicker;https://blur009.vercel.app/projects/blur-autoclicker/;1
+Werkzeuge;Everything;voidtools.Everything;0;0;0;Dateisuche in Sekundenbruchteilen;https://www.voidtools.com/;0
+Werkzeuge;F.lux;flux.flux;0;0;0;Bildschirm abends waermer;https://justgetflux.com/;0
+Werkzeuge;Files;FilesCommunity.Files;0;0;0;Moderner Datei-Explorer;https://files.community;1
+Werkzeuge;Flameshot;Flameshot.Flameshot;0;0;0;Screenshots mit Markierungen;https://flameshot.org/;1
+Werkzeuge;GlazeWM;glzr-io.glazewm;0;0;0;Kachel-Fenstermanager;https://github.com/glzr-io/glazewm;1
+Werkzeuge;HxD Hex Editor;MHNexus.HxD;0;0;0;Hex-Editor;https://mh-nexus.de/en/hxd/;0
+Werkzeuge;ImHex;WerWolv.ImHex;0;0;0;Hex-Editor fuer Profis;https://imhex.werwolv.net/;1
+Werkzeuge;Internet Download Manager;Tonec.InternetDownloadManager;0;0;0;Download-Manager (kostenpflichtig);https://www.internetdownloadmanager.com/;0
+Werkzeuge;JPEG View;sylikc.JPEGView;0;0;0;Schlanker Bildbetrachter;https://github.com/sylikc/jpegview;1
+Werkzeuge;LocalSend;LocalSend.LocalSend;1;1;0;Dateien vom/zum Handy im eigenen WLAN;https://localsend.org/;1
+Werkzeuge;MSEdgeRedirect;rcmaehl.MSEdgeRedirect;0;0;0;Leitet Windows-Links zum eigenen Browser um;https://github.com/rcmaehl/MSEdgeRedirect;1
+Werkzeuge;NanaZip;M2Team.NanaZip;0;0;0;7-Zip-Ableger fuers neue Kontextmenue (Store-Paket);https://nanazip.org;1
+Werkzeuge;Nilesoft Shell;Nilesoft.Shell;0;0;0;Erweitertes Rechtsklick-Menue;https://nilesoft.org/;0
+Werkzeuge;OPAutoClicker;OPAutoClicker.OPAutoClicker;0;0;0;Autoklicker;https://www.opautoclicker.com;0
+Werkzeuge;PeaZip;Giorgiotani.Peazip;0;0;0;Packprogramm (Open Source);https://peazip.github.io/;1
+Werkzeuge;qBittorrent;qBittorrent.qBittorrent;0;0;0;BitTorrent-Client;https://www.qbittorrent.org/;1
+Werkzeuge;StartAllBack;StartIsBack.StartAllBack;0;0;0;Klassisches Startmenue/Taskleiste (kostenpflichtig);https://www.startallback.com/;0
+Werkzeuge;Total Commander;Ghisler.TotalCommander;0;0;0;Zwei-Fenster-Dateimanager (Shareware);https://www.ghisler.com/;0
+Werkzeuge;TranslucentTB;CharlesMilette.TranslucentTB;0;0;0;Durchsichtige Taskleiste;https://translucenttb.github.io;1
+Werkzeuge;UniGetUI;Devolutions.UniGetUI;0;0;0;Oberflaeche fuer winget & Co. (Updates aller Programme);https://devolutions.net/unigetui/;1
+Werkzeuge;WinRAR;RARLab.WinRAR;0;0;0;Packprogramm (Shareware);https://www.win-rar.com/;0
+Virenschutz & Firewall;AdwCleaner;Malwarebytes.AdwCleaner;0;0;0;Entfernt Adware, Toolbars und unerwuenschte Programme;https://www.malwarebytes.com/adwcleaner;0
+Virenschutz & Firewall;Bitdefender Antivirus;Bitdefender.Bitdefender;0;0;0;Virenschutz von Bitdefender - ersetzt Defender (nur EIN Virenscanner gleichzeitig!);https://www.bitdefender.de/;0
+Virenschutz & Firewall;ConfigureDefender;AndyFul.ConfigureDefender;0;0;0;Defender-Einstellungen in Stufen (Default/High/Max) ansehen und setzen;https://github.com/AndyFul/ConfigureDefender;1
+Virenschutz & Firewall;Emsisoft Emergency Kit;Emsisoft.EmergencyKit;0;0;0;Notfall-Virenscanner (zweite Meinung, ohne Installation);https://www.emsisoft.com/de/emergency-kit/;0
+Virenschutz & Firewall;ESET HOME Security;ESET.Security;0;0;0;Virenschutz von ESET (kostenpflichtig, Testversion) - ersetzt Defender;https://www.eset.com/de/;0
+Virenschutz & Firewall;GlassWire;GlassWire.GlassWire;0;0;0;Zeigt, welches Programm ins Internet funkt;https://www.glasswire.com/;0
+Virenschutz & Firewall;Malwarebytes;Malwarebytes.Malwarebytes;0;0;0;Zweitscanner gegen Schadsoftware (Gratis-Version scannt auf Knopfdruck);https://www.malwarebytes.com/;0
+Virenschutz & Firewall;NextDNS;NextDNS.NextDNS;0;0;0;DNS-Filter gegen Schadseiten/Werbung (Konto noetig);https://nextdns.io/;1
+Virenschutz & Firewall;O&O ShutUp10++;OO-Software.ShutUp10;0;0;0;Windows-Datenschutzschalter;https://www.oo-software.com/shutup10;0
+Virenschutz & Firewall;Patch My PC Home Updater;PatchMyPC.PatchMyPC;0;0;0;Haelt viele Programme aktuell (veraltete Programme = Sicherheitsluecken);https://patchmypc.com/home-updater;0
+Virenschutz & Firewall;Portmaster;Safing.Portmaster;0;0;0;Firewall pro Programm + Tracker-Blocker (Open Source);https://safing.io/;1
+Virenschutz & Firewall;privacy.sexy;undergroundwires.privacy.sexy;0;0;0;Datenschutz-/Haertungs-Skripte zum Auswaehlen (mit Erklaerungen);https://privacy.sexy/;1
+Virenschutz & Firewall;Sandboxie Plus;Sandboxie.Plus;0;0;0;Programme abgeschottet in einer Sandbox starten;https://sandboxie-plus.com/;1
+Virenschutz & Firewall;Simplewall;Henry++.simplewall;0;0;0;Firewall: Internetzugriff pro Programm erlauben/sperren;https://github.com/henrypp/simplewall;1
+Virenschutz & Firewall;Windows Firewall Control;BiniSoft.WindowsFirewallControl;0;0;0;Fragt bei jeder neuen Verbindung nach (Bedienoberflaeche fuer die Windows-Firewall);https://www.binisoft.org/wfc;0
+Verschluesselung & Passwoerter;1Password;AgileBits.1Password;0;0;0;Passwortmanager (Abo);https://1password.com/;0
+Verschluesselung & Passwoerter;Bitwarden;Bitwarden.Bitwarden;0;0;0;Passwortmanager (Cloud, Open Source);https://bitwarden.com/;1
+Verschluesselung & Passwoerter;Cryptomator;Cryptomator.Cryptomator;0;0;0;Cloud-Ordner verschluesseln (OneDrive/Dropbox/Nextcloud);https://cryptomator.org/;1
+Verschluesselung & Passwoerter;Ente Auth;ente-io.auth-desktop;0;0;0;2-Faktor-Codes (verschluesselt, Open Source);https://ente.io/auth/;1
+Verschluesselung & Passwoerter;Eraser;Eraser.Eraser;0;0;0;Dateien sicher loeschen (nicht wiederherstellbar);https://eraser.heidi.ie/;1
+Verschluesselung & Passwoerter;Gpg4win;GnuPG.Gpg4win;0;0;0;E-Mails und Dateien verschluesseln/signieren (OpenPGP);https://www.gpg4win.de/;1
+Verschluesselung & Passwoerter;KeePass 2;DominikReichl.KeePass;0;0;0;Klassischer Passwortmanager, offline;https://keepass.info/;1
+Verschluesselung & Passwoerter;KeePassXC;KeePassXCTeam.KeePassXC;0;0;0;Passwortmanager, offline, Open Source;https://keepassxc.org/;1
+Verschluesselung & Passwoerter;Proton Authenticator;Proton.ProtonAuthenticator;0;0;0;2-Faktor-Codes von Proton;https://proton.me/authenticator;1
+Verschluesselung & Passwoerter;Proton Pass;Proton.ProtonPass;0;0;0;Passwortmanager von Proton;https://proton.me/pass;1
+Verschluesselung & Passwoerter;VeraCrypt;IDRIX.VeraCrypt;0;0;0;Verschluesselte Container und Laufwerke (auch fuer USB-Sticks);https://veracrypt.fr/;1
+Verschluesselung & Passwoerter;Yubico Authenticator;Yubico.Authenticator;0;0;0;2-Faktor-Codes vom YubiKey;https://www.yubico.com/;1
+Verschluesselung & Passwoerter;YubiKey Manager;Yubico.YubikeyManager;0;0;0;Hardware-Schluessel (YubiKey) einrichten;https://www.yubico.com/;1
+Sicherheits-Analyse;Autoruns (Microsoft);Microsoft.Sysinternals.Autoruns;0;0;0;Zeigt alles, was mit Windows startet;https://learn.microsoft.com/en-us/sysinternals/downloads/autoruns;0
+Sicherheits-Analyse;OpenHashTab;namazso.OpenHashTab;0;0;0;Pruefsummen im Eigenschaften-Fenster (Downloads pruefen);https://github.com/namazso/OpenHashTab;1
+Sicherheits-Analyse;Process Explorer (Microsoft);Microsoft.Sysinternals.ProcessExplorer;0;0;0;Erweiterter Task-Manager;https://learn.microsoft.com/sysinternals/downloads/process-explorer;0
+Sicherheits-Analyse;Process Monitor (Microsoft);Microsoft.Sysinternals.ProcessMonitor;0;0;0;Datei-/Registry-Zugriffe live mitschneiden;https://docs.microsoft.com/en-us/sysinternals/downloads/procmon;0
+Sicherheits-Analyse;Sigcheck;Microsoft.Sysinternals.Sigcheck;0;0;0;Prueft Signaturen von Dateien (auch gegen VirusTotal);https://learn.microsoft.com/sysinternals/downloads/sigcheck;0
+Sicherheits-Analyse;Sysmon;Microsoft.Sysinternals.Sysmon;0;0;0;Protokolliert Prozesse und Verbindungen fuer die Analyse (braucht Konfiguration);https://learn.microsoft.com/sysinternals/downloads/sysmon;0
+Sicherheits-Analyse;System Informer;WinsiderSS.SystemInformer;0;0;0;Erweiterter Task-Manager (Open Source);https://systeminformer.com/;1
+Sicherheits-Analyse;TCPView (Microsoft);Microsoft.Sysinternals.TCPView;0;0;0;Zeigt alle Netzwerkverbindungen;https://docs.microsoft.com/en-us/sysinternals/downloads/tcpview;0
+Datensicherung;Duplicati;Duplicati.Duplicati;0;0;0;Verschluesselte Datensicherung (lokal oder Cloud);https://duplicati.com/;1
+Datensicherung;Kopia;Kopia.KopiaUI;0;0;0;Schnelle, verschluesselte Datensicherung mit Versionen;https://kopia.io/;1
+Datensicherung;Veeam Agent Free;Veeam.VeeamAgent;0;0;0;Komplettsicherung des PCs (Abbild) auf USB-Platte/NAS;https://www.veeam.com/;0
+Cloud & Sync;Dropbox;Dropbox.Dropbox;0;0;0;Cloud-Speicher Dropbox;https://www.dropbox.com/desktop;0
+Cloud & Sync;Google Drive;Google.GoogleDrive;0;0;0;Cloud-Speicher Google Drive;https://www.google.com/drive/;0
+Cloud & Sync;Nextcloud Desktop;Nextcloud.NextcloudDesktop;0;0;0;Sync mit eigener Nextcloud;https://nextcloud.com/install/#install-clients;1
+Cloud & Sync;Proton Drive;Proton.ProtonDrive;0;0;0;Verschluesselter Cloud-Speicher (Proton);https://proton.me/drive;1
+Cloud & Sync;Syncthing;Syncthing.Syncthing;0;0;0;Ordner zwischen Geraeten synchronisieren (ohne Cloud);https://syncthing.net/;1
+Cloud & Sync;SyncTrayzor;GermanCoding.SyncTrayzor;0;0;0;Syncthing mit Symbol im Infobereich;https://github.com/GermanCoding/SyncTrayzor;0
+Fernzugriff & VPN;AnyDesk;AnyDesk.AnyDesk;0;0;0;Fernwartung;https://anydesk.com/;0
+Fernzugriff & VPN;Cloudflare WARP;Cloudflare.Warp;0;0;0;VPN von Cloudflare (kostenlos/Abo);https://one.one.one.one;0
+Fernzugriff & VPN;Deskflow;Deskflow.Deskflow;0;0;0;Eine Maus/Tastatur fuer mehrere PCs;https://github.com/deskflow/deskflow;1
+Fernzugriff & VPN;Mullvad VPN;MullvadVPN.MullvadVPN;0;0;0;VPN-Dienst Mullvad (Abo);https://mullvad.net/;1
+Fernzugriff & VPN;NetBird;Netbird.Netbird;0;0;0;Eigenes VPN-Netz (wie Tailscale, Open Source);https://netbird.io/;1
+Fernzugriff & VPN;OpenVPN Connect;OpenVPNTechnologies.OpenVPNConnect;0;0;0;OpenVPN-Client;https://openvpn.net/;0
+Fernzugriff & VPN;Parsec;Parsec.Parsec;0;0;0;Fernzugriff mit sehr wenig Verzoegerung (Spiele);https://parsec.app/;0
+Fernzugriff & VPN;Proton VPN;Proton.ProtonVPN;0;0;0;VPN von Proton (kostenlos/Abo);https://protonvpn.com/;1
+Fernzugriff & VPN;RDCMan (Microsoft);Microsoft.Sysinternals.RDCMan;0;0;0;Viele Remotedesktop-Verbindungen verwalten;https://learn.microsoft.com/en-us/sysinternals/downloads/rdcman;0
+Fernzugriff & VPN;RustDesk;RustDesk.RustDesk;0;0;0;Fernwartung, Open Source (TeamViewer-Alternative);https://rustdesk.com/;1
+Fernzugriff & VPN;Tailscale;Tailscale.Tailscale;0;0;0;Eigenes VPN zwischen deinen Geraeten;https://tailscale.com/;0
+Fernzugriff & VPN;TeamViewer;TeamViewer.TeamViewer;0;0;0;Fernwartung;https://www.teamviewer.com/;0
+Fernzugriff & VPN;TightVNC;GlavSoft.TightVNC;0;0;0;Fernzugriff per VNC;https://www.tightvnc.com/;1
+Fernzugriff & VPN;WireGuard;WireGuard.WireGuard;0;0;0;VPN-Client WireGuard;https://www.wireguard.com/;1
+Netzwerk & IT;Advanced IP Scanner;Famatech.AdvancedIPScanner;0;0;0;Netzwerk-Scanner (einfach);https://www.advanced-ip-scanner.com/;0
+Netzwerk & IT;Angry IP Scanner;angryziber.AngryIPScanner;0;0;0;Netzwerk-Scanner (Geraete im Netz finden);https://angryip.org/;1
+Netzwerk & IT;DISMTools;CodingWondersSoftware.DISMTools.Stable;0;0;0;Oberflaeche fuer DISM (Windows-Abbilder);https://github.com/CodingWonders/DISMTools;1
+Netzwerk & IT;FileZilla;TimKosse.FileZilla.Client;0;0;0;FTP/SFTP-Client;https://filezilla-project.org/;1
+Netzwerk & IT;gsudo;gerardog.gsudo;0;0;0;'sudo' fuer Windows (Terminal);https://github.com/gerardog/gsudo;1
+Netzwerk & IT;Nmap;Insecure.Nmap;0;0;0;Netzwerk- und Port-Scanner;https://nmap.org/;1
+Netzwerk & IT;NTLite;Nlitesoft.NTLite;0;0;0;Windows-Abbilder anpassen;https://ntlite.com;0
+Netzwerk & IT;Oracle VirtualBox;Oracle.VirtualBox;0;0;0;Virtuelle Maschinen;https://www.virtualbox.org/;1
+Netzwerk & IT;Policy Plus;Fleex255.PolicyPlus;0;0;0;Gruppenrichtlinien-Editor (auch fuer Home);https://github.com/Fleex255/PolicyPlus;1
+Netzwerk & IT;PuTTY;PuTTY.PuTTY;0;0;0;SSH- und Seriell-Terminal;https://www.chiark.greenend.org.uk/~sgtatham/putty/;1
+Netzwerk & IT;Rufus Imager;Rufus.Rufus;0;0;0;Boot-Sticks erstellen;https://rufus.ie/;1
+Netzwerk & IT;Ventoy;Ventoy.Ventoy;0;0;0;Multi-Boot-Stick erstellen;https://www.ventoy.net/;1
+Netzwerk & IT;WinSCP;WinSCP.WinSCP;0;0;0;Dateien per SFTP/FTP uebertragen;https://winscp.net/;1
+Netzwerk & IT;Wireshark;WiresharkFoundation.Wireshark;0;0;0;Netzwerkverkehr mitschneiden und analysieren;https://www.wireshark.org/;1
+System & Diagnose;BleachBit;BleachBit.BleachBit;0;0;0;Datenmuell und Spuren loeschen;https://www.bleachbit.org/;1
+System & Diagnose;Bulk Crap Uninstaller;Klocman.BulkCrapUninstaller;0;0;0;Viele Programme auf einmal sauber entfernen;https://www.bcuninstaller.com/;1
+System & Diagnose;Cinebench R23;Maxon.CinebenchR23;0;0;0;CPU-Benchmark;https://www.maxon.net/en/cinebench;0
+System & Diagnose;CPU-Z;CPUID.CPU-Z;0;0;0;Zeigt CPU, Mainboard, RAM;https://www.cpuid.com/softwares/cpu-z.html;0
+System & Diagnose;Crystal Disk Info;CrystalDewWorld.CrystalDiskInfo;0;0;0;Festplatten-Gesundheit (SMART);https://crystalmark.info/en/software/crystaldiskinfo/;1
+System & Diagnose;Crystal Disk Mark;CrystalDewWorld.CrystalDiskMark;0;0;0;Festplatten-Geschwindigkeitstest;https://crystalmark.info/en/software/crystaldiskmark/;1
+System & Diagnose;Display Driver Uninstaller;Wagnardsoft.DisplayDriverUninstaller;0;0;0;Grafiktreiber restlos entfernen (DDU);https://www.wagnardsoft.com/display-driver-uninstaller-DDU-;1
+System & Diagnose;GPU-Z;TechPowerUp.GPU-Z;0;0;0;Infos zur Grafikkarte;https://www.techpowerup.com/gpuz/;0
+System & Diagnose;HWiNFO;REALiX.HWiNFO;0;1;0;Hardware-Infos und Sensoren;https://www.hwinfo.com/;0
+System & Diagnose;HWMonitor;CPUID.HWMonitor;0;0;0;Temperaturen und Spannungen;https://www.cpuid.com/softwares/hwmonitor.html;0
+System & Diagnose;MiniTool Partition Wizard;MiniTool.PartitionWizard.Free;0;0;0;Partitionen verwalten;https://www.partitionwizard.com/;0
+System & Diagnose;MSI Afterburner;Guru3D.Afterburner;0;0;0;Grafikkarte uebertakten/ueberwachen;https://www.msi.com/Landing/afterburner;0
+System & Diagnose;NVCleanstall;TechPowerUp.NVCleanstall;0;0;0;NVIDIA-Treiber ohne Ballast installieren;https://www.techpowerup.com/nvcleanstall/;0
+System & Diagnose;OFGB (Oh Frick Go Back);xM4ddy.OFGB;0;0;0;Werbung in Windows 11 abschalten;https://github.com/xM4ddy/OFGB;1
+System & Diagnose;OpenRGB;OpenRGB.OpenRGB;0;0;0;RGB-Beleuchtung steuern (herstelleruebergreifend);https://openrgb.org/;1
+System & Diagnose;Process Lasso;BitSum.ProcessLasso;0;0;0;Prozess-Prioritaeten automatisch steuern;https://bitsum.com/;0
+System & Diagnose;Revo Uninstaller;RevoUninstaller.RevoUninstaller;0;0;0;Programme gruendlich entfernen;https://www.revouninstaller.com/;0
+System & Diagnose;SignalRGB;WhirlwindFX.SignalRgb;0;0;0;RGB-Beleuchtung steuern;https://www.signalrgb.com/;0
+System & Diagnose;Snappy Driver Installer Origin;GlennDelahoy.SnappyDriverInstallerOrigin;0;0;0;Treiber offline finden/installieren;https://www.glenn.delahoy.com/snappy-driver-installer-origin/;1
+System & Diagnose;TreeSize Free;JAMSoftware.TreeSize.Free;0;0;0;Zeigt, was die Festplatte fuellt;https://www.jam-software.com/treesize_free/;0
+System & Diagnose;Wise Program Uninstaller (WiseCleaner);WiseCleaner.WiseProgramUninstaller;0;0;0;Programme gruendlich entfernen;https://www.wisecleaner.com/wise-program-uninstaller.html;0
+System & Diagnose;WizTree;AntibodySoftware.WizTree;0;0;0;Zeigt, was die Festplatte fuellt (sehr schnell);https://wiztreefree.com/;0
+Entwicklung;Amazon Corretto 21 (LTS);Amazon.Corretto.21.JDK;0;0;0;Java 21 (Entwicklung/Programme, die Java brauchen);https://aws.amazon.com/corretto;1
+Entwicklung;Amazon Corretto 25 (LTS);Amazon.Corretto.25.JDK;0;0;0;Java 25;https://aws.amazon.com/corretto;1
+Entwicklung;Amazon Corretto 8 (LTS);Amazon.Corretto.8.JDK;0;0;0;Java 8 (fuer alte Programme);https://aws.amazon.com/corretto;1
+Entwicklung;Bruno;Bruno.Bruno;0;0;0;API-Client (lokal, Postman-Alternative);https://www.usebruno.com/;1
+Entwicklung;ChatGPT Desktop;msstore:9NT1R1C2HH7J;0;0;1;ChatGPT (braucht den Microsoft Store);https://openai.com/chatgpt/download/;0
+Entwicklung;Claude Code;Anthropic.ClaudeCode;0;0;0;Claude Code (Programmier-Assistent, Terminal);https://code.claude.com/;0
+Entwicklung;Claude Desktop;Anthropic.Claude;0;0;0;Claude als Desktop-App;https://claude.ai/download;0
+Entwicklung;CMake;Kitware.CMake;0;0;0;Build-Werkzeug (C/C++);https://cmake.org/;1
+Entwicklung;Codex;OpenAI.Codex;0;0;0;Codex (Programmier-Assistent, Terminal);https://developers.openai.com/codex/cli;1
+Entwicklung;Cursor;Anysphere.Cursor;0;0;0;KI-Code-Editor (VS-Code-Basis);https://cursor.com/;0
+Entwicklung;Docker Desktop;Docker.DockerDesktop;0;0;0;Container (Docker) unter Windows;https://www.docker.com/products/docker-desktop/;0
+Entwicklung;Fast Node Manager;Schniz.fnm;0;0;0;Node.js-Versionen verwalten;https://github.com/Schniz/fnm;1
+Entwicklung;Git;Git.Git;0;0;0;Versionsverwaltung Git;https://git-scm.com/;1
+Entwicklung;Git Extensions;GitExtensionsTeam.GitExtensions;0;0;0;Git mit Oberflaeche;https://gitextensions.github.io/;1
+Entwicklung;GitHub CLI;GitHub.cli;0;0;0;GitHub im Terminal (gh);https://cli.github.com/;1
+Entwicklung;GitHub Desktop;GitHub.GitHubDesktop;0;0;0;GitHub mit Oberflaeche;https://desktop.github.com/;1
+Entwicklung;Go;GoLang.Go;0;0;0;Programmiersprache Go;https://go.dev/;1
+Entwicklung;Hugo;Hugo.Hugo.Extended;0;0;0;Webseiten-Generator;https://gohugo.io;1
+Entwicklung;Jetbrains Toolbox;JetBrains.Toolbox;0;0;0;Installiert JetBrains-IDEs (PyCharm, IntelliJ ...);https://www.jetbrains.com/toolbox/;0
+Entwicklung;Lazygit;JesseDuffield.lazygit;0;0;0;Git im Terminal mit Oberflaeche;https://github.com/jesseduffield/lazygit/;1
+Entwicklung;Lua;rjpcomputing.luaforwindows;0;0;0;Programmiersprache Lua;https://github.com/rjpcomputing/luaforwindows;1
+Entwicklung;Neovim;Neovim.Neovim;0;0;0;Texteditor im Terminal (Vim);https://neovim.io/;1
+Entwicklung;NodeJS;OpenJS.NodeJS;0;0;0;Node.js (aktuell);https://nodejs.org/;1
+Entwicklung;NodeJS LTS;OpenJS.NodeJS.LTS;0;0;0;Node.js (Langzeitversion);https://nodejs.org/;1
+Entwicklung;Notepad++;Notepad++.Notepad++;0;0;0;Texteditor mit Farben fuer Code;https://notepad-plus-plus.org/;1
+Entwicklung;Oh My Posh;JanDeDobbeleer.OhMyPosh;0;0;0;Huebsche Eingabezeile fuers Terminal;https://ohmyposh.dev/;1
+Entwicklung;OpenCode;SST.opencode;0;0;0;OpenCode (KI-Programmier-Assistent, Terminal);https://opencode.ai/;1
+Entwicklung;pnpm;pnpm.pnpm;0;0;0;JavaScript-Paketmanager;https://pnpm.io/;1
+Entwicklung;Postman;Postman.Postman;0;0;0;API-Client;https://www.postman.com/downloads/;0
+Entwicklung;Python3;Python.Python.3.14;0;0;0;Programmiersprache Python 3;https://www.python.org/;1
+Entwicklung;Ruby;RubyInstallerTeam.Ruby.4.0;0;0;0;Programmiersprache Ruby;https://rubyinstaller.org/;1
+Entwicklung;Rust;Rustlang.Rust.MSVC;0;0;0;Programmiersprache Rust;https://www.rust-lang.org/;1
+Entwicklung;Starship;Starship.Starship;0;0;0;Huebsche Eingabezeile fuers Terminal;https://starship.rs/;1
+Entwicklung;Sublime Text;SublimeHQ.SublimeText.4;0;0;0;Texteditor (Shareware);https://www.sublimetext.com/;0
+Entwicklung;Unity Game Engine;Unity.UnityHub;0;0;0;Spiele-Entwicklung (Unity);https://unity.com/;0
+Entwicklung;uv;astral-sh.uv;0;0;0;Schneller Python-Paketmanager;https://docs.astral.sh/uv/getting-started/installation/;1
+Entwicklung;Vagrant;Hashicorp.Vagrant;0;0;0;Virtuelle Maschinen per Skript;https://developer.hashicorp.com/vagrant;0
+Entwicklung;Visual Studio 2022 (Microsoft);Microsoft.VisualStudio.2022.Community;0;0;0;Visual Studio 2022 (gross, Microsoft);https://visualstudio.microsoft.com/;0
+Entwicklung;Visual Studio 2026 (Microsoft);Microsoft.VisualStudio.Community;0;0;0;Visual Studio 2026 (gross, Microsoft);https://visualstudio.microsoft.com/;0
+Entwicklung;VS Code (Microsoft);Microsoft.VisualStudioCode;0;0;0;Code-Editor von Microsoft (mit Telemetrie);https://code.visualstudio.com/;1
+Entwicklung;VS Codium;VSCodium.VSCodium;0;0;0;VS Code ohne Microsoft-Telemetrie;https://vscodium.com/;1
+Entwicklung;Yarn;Yarn.Yarn;0;0;0;JavaScript-Paketmanager;https://yarnpkg.com/;1
+Entwicklung;Zed;ZedIndustries.Zed;0;0;0;Schneller Code-Editor;https://zed.dev/;1
+Gaming;Battle.net;Blizzard.BattleNet;0;0;0;Spiele-Launcher Blizzard/Activision;https://battle.net;0
+Gaming;Cemu;Cemu.Cemu;0;0;0;Wii-U-Emulator;https://cemu.info/;1
+Gaming;CurseForge;Overwolf.CurseForge;0;0;0;Spiele-Mods verwalten;https://www.overwolf.com/app/overwolf-curseforge;0
+Gaming;EA App;ElectronicArts.EADesktop;0;0;0;Spiele-Launcher EA;https://www.ea.com/ea-app;0
+Gaming;EmulationStation Desktop Edition;ES-DE.EmulationStation-DE;0;0;0;Oberflaeche fuer Emulatoren;https://es-de.org/;1
+Gaming;Epic Games Launcher;EpicGames.EpicGamesLauncher;0;0;0;Spiele-Launcher Epic;https://www.epicgames.com/store/en-US/;0
+Gaming;GeForce NOW;Nvidia.GeForceNow;0;0;0;Cloud-Gaming von NVIDIA;https://www.nvidia.com/en-us/geforce-now/;0
+Gaming;GOG Galaxy;GOG.Galaxy;0;0;0;Spiele-Launcher GOG;https://www.gog.com/galaxy;0
+Gaming;Heroic Games Launcher;HeroicGamesLauncher.HeroicGamesLauncher;0;0;0;Launcher fuer Epic/GOG/Amazon (Open Source);https://heroicgameslauncher.com/;1
+Gaming;Itch.io;ItchIo.Itch;0;0;0;Indie-Spiele (itch.io);https://itch.io/;1
+Gaming;Modrinth App;Modrinth.ModrinthApp;0;0;0;Minecraft-Mods verwalten;https://modrinth.com/app;1
+Gaming;Moonlight/GameStream Client;MoonlightGameStreamingProject.Moonlight;0;0;0;Spiele vom PC streamen (Empfaenger);https://moonlight-stream.org/;1
+Gaming;Playnite;Playnite.Playnite;0;0;0;Alle Spiele-Bibliotheken an einem Ort;https://playnite.link/;1
+Gaming;Prism Launcher;PrismLauncher.PrismLauncher;0;0;0;Minecraft-Launcher mit Mods;https://prismlauncher.org/;1
+Gaming;Roblox;Roblox.Roblox;0;0;0;Roblox;https://www.roblox.com/;0
+Gaming;Steam;Valve.Steam;0;1;0;Spiele-Plattform Steam;https://store.steampowered.com/about/;0
+Gaming;Sunshine/GameStream Server;LizardByte.Sunshine;0;0;0;Spiele vom PC auf andere Geraete streamen (Server);https://app.lizardbyte.dev/Sunshine/;1
+Gaming;Ubisoft Connect;Ubisoft.Connect;0;0;0;Spiele-Launcher Ubisoft;https://ubisoftconnect.com/;0
+Gaming;Virtual Desktop Streamer;VirtualDesktop.Streamer;0;0;0;PC-Spiele auf VR-Brille streamen;https://www.vrdesktop.net/;0
+Heimnetz & Medienserver;Jellyfin Media Player;Jellyfin.JellyfinMediaPlayer;0;0;0;Player fuer Jellyfin-Server;https://jellyfin.org/;1
+Heimnetz & Medienserver;Jellyfin Server;Jellyfin.Server;0;0;0;Eigener Medienserver (Filme/Musik streamen);https://jellyfin.org/;1
+Heimnetz & Medienserver;Kodi Media Center;XBMCFoundation.Kodi;0;0;0;Mediacenter;https://kodi.tv/;1
+Heimnetz & Medienserver;Plex Desktop;Plex.Plex;0;0;0;Player fuer Plex-Server;https://www.plex.tv;0
+Heimnetz & Medienserver;Plex Media Server;Plex.PlexMediaServer;0;0;0;Eigener Medienserver (Plex);https://www.plex.tv/your-media/;0
+Microsoft-Werkzeuge;.NET Desktop Runtime 10 (Microsoft);Microsoft.DotNet.DesktopRuntime.10;0;0;0;.NET 10 Laufzeit (fuer Programme, die es brauchen);https://dotnet.microsoft.com/download/dotnet/10.0;1
+Microsoft-Werkzeuge;.NET Desktop Runtime 6 (Microsoft);Microsoft.DotNet.DesktopRuntime.6;0;0;0;.NET 6 Laufzeit;https://dotnet.microsoft.com/download/dotnet/6.0;1
+Microsoft-Werkzeuge;.NET Desktop Runtime 8 (Microsoft);Microsoft.DotNet.DesktopRuntime.8;0;0;0;.NET 8 Laufzeit;https://dotnet.microsoft.com/download/dotnet/8.0;1
+Microsoft-Werkzeuge;.NET Desktop Runtime 9 (Microsoft);Microsoft.DotNet.DesktopRuntime.9;0;0;0;.NET 9 Laufzeit;https://dotnet.microsoft.com/download/dotnet/9.0;1
+Microsoft-Werkzeuge;NuGet (Microsoft);Microsoft.NuGet;0;0;0;.NET-Paketmanager;https://www.nuget.org/;1
+Microsoft-Werkzeuge;OneDrive (Microsoft);Microsoft.OneDrive;0;0;0;Microsoft-Cloud (widerspricht 'OneDrive entfernen');https://onedrive.live.com/;0
+Microsoft-Werkzeuge;PowerShell (Microsoft);Microsoft.PowerShell;0;0;0;PowerShell 7 (neue Version);https://github.com/PowerShell/PowerShell;1
+Microsoft-Werkzeuge;PowerToys (Microsoft);Microsoft.PowerToys;0;0;0;Microsoft-Zusatzwerkzeuge (FancyZones, Farbwaehler ...);https://github.com/microsoft/PowerToys;1
+Microsoft-Werkzeuge;PsTools (Microsoft);Microsoft.Sysinternals.PsTools;0;0;0;Fernverwaltung per Kommandozeile;https://learn.microsoft.com/en-us/sysinternals/downloads/pstools;0
+Microsoft-Werkzeuge;Visual C++ 2015-2022 32-bit (Microsoft);Microsoft.VCRedist.2015+.x86;0;0;0;Visual-C++-Laufzeit 32 Bit;https://support.microsoft.com/en-us/help/2977003/the-latest-supported-visual-c-downloads;0
+Microsoft-Werkzeuge;Visual C++ 2015-2022 64-bit (Microsoft);Microsoft.VCRedist.2015+.x64;0;0;0;Visual-C++-Laufzeit 64 Bit (viele Programme brauchen sie);https://support.microsoft.com/en-us/help/2977003/the-latest-supported-visual-c-downloads;0
+Microsoft-Werkzeuge;Windows Terminal (Microsoft);Microsoft.WindowsTerminal;0;0;0;Modernes Terminal;https://aka.ms/terminal;1
