@@ -12,8 +12,9 @@ Geschrieben für Office-Laptops und Gaming-PCs mit **Windows 11 Pro/Home 24H2 bi
 
 ## Bilder
 
-| | |
-|---|---|
+Bildschirmfotos der Oberfläche folgen in Kürze.
+
+---|---|
 | ![Konten](bilder/10-oberflaeche-konten.png) | ![Cybersicherheit](bilder/13-oberflaeche-cybersicherheit.png) |
 | **Konten:** Alltagskonto ohne Adminrechte, Verwaltungskonto, weitere Konten; alle Passwörter vergibst du selbst | **Cybersicherheit:** Defender-ASR, Kernisolierung, Anmeldeschutz, SMB-Signierung … |
 | ![Programme](bilder/17-oberflaeche-programme.png) | ![Standard-Apps](bilder/18-oberflaeche-standard-apps.png) |
@@ -150,7 +151,7 @@ Built for office laptops and gaming PCs running **Windows 11 Pro/Home 24H2 to 26
 
 ### Screenshots
 
-See the table at the top or the [`bilder/`](bilder/) folder. File names are German: *oberflaeche* = setup window, *fortschritt* = progress window, *zentrale* = maintenance center.
+Screenshots of the user interface will be added shortly.
 
 ### What it does
 
