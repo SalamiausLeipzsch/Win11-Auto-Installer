@@ -1,6 +1,8 @@
 # bilder-erstellen.ps1 - Bildschirmfotos fuer das README erzeugen.
 # Laedt den aktuellen Stand von GitHub und startet die Vorschau (keine Adminrechte, aendert NICHTS am System).
-# Aufruf (Windows + R):  powershell -ep bypass -c "irm https://raw.githubusercontent.com/SalamiausLeipzsch/Win11-Auto-Installer/main/werkzeuge/bilder-erstellen.ps1 | iex"
+# Hinweis: "irm ... | iex" aus dem Ausfuehren-Dialog blockiert Defender (typisches Schadsoftware-Muster) - zu Recht.
+# Einfacher: Repo als ZIP laden, entpacken, im Ordner Windows-Einrichtung in die Explorer-Adresszeile tippen:
+#   cmd /k Vorschau.cmd -Bilder "%USERPROFILE%\Desktop\Win11-Bilder"
 $ErrorActionPreference = 'Stop'
 $zip  = Join-Path $env:TEMP 'w11-auto-installer.zip'
 $ordn = Join-Path $env:TEMP 'w11-auto-installer'
