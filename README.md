@@ -13,6 +13,7 @@ Geschrieben für Office-Laptops und Gaming-PCs mit **Windows 11 Pro/Home 24H2 bi
 ## Bilder
 
 Bildschirmfotos der Oberfläche folgen in Kürze.
+
 ---
 
 ## Was es macht
